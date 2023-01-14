@@ -110,9 +110,13 @@
 
     &__phones {}
 
-    &__favorite {}
+    &__favorite {
+        font-size: rem(27);
+    }
 
-    &__cart {}
+    &__cart {
+        flex: 0 0 auto;
+    }
 }
 
 .phones-header {
@@ -131,7 +135,7 @@
     }
 
     &__arrow {
-        color: $gold;
+        color: $mainGold;
         font-size: rem(10);
         margin: 0 0 0 em(17, 16);
         cursor: pointer;
@@ -163,19 +167,50 @@
         cursor: pointer;
         font-weight: 700;
         line-height: math.div(22, 18);
-        color: $gold;
+        color: $mainGold;
     }
 }
 
 .cart-header {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    &__icon {
+        flex: 0 0 37px;
+        font-size: rem(35);
+        position: relative;
+        span {
+            color: #fff;
+            width: rem(14);
+            height: rem(14);
+            background-color: $mainGold;
+            position: absolute;
+            font-size: rem(7);
+            border-radius: 50%;
+            top: -2px;
+            right: -5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 
-    &__icon {}
+    &__body {
+        font-size: rem(16);
+        line-height: math.div(20, 16);
+        flex: 0 0 auto;
+    }
 
-    &__body {}
+    &__summ {
+        font-weight: 500;
+        &:not(:last-child) {
+            margin-bottom: em(5, 16);
+        }
+    }
 
-    &__summ {}
-
-    &__link {}
+    &__link {
+        color: $mainGold;
+    }
 }
 //====================================================================================================================================================
 .icon-menu {

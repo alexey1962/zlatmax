@@ -486,6 +486,10 @@ template {
   display: none;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -495,6 +499,9 @@ template {
   left: 0;
   opacity: 0;
   visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.8s ease 0s;
 }
 .popup.open {
   opacity: 1;
@@ -505,20 +512,30 @@ template {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px 10px;
+  padding: 1.875rem 0.625rem;
+}
+.popup.open .popup__content {
+  transform: perspective(37.5rem) translate(0px, 0px) rotate(0deg);
+  opacity: 1;
 }
 .popup__content {
   background-color: #fff;
   color: #000;
-  max-width: 800px;
-  padding: 30px;
+  max-width: 50rem;
+  width: 100%;
+  padding: 1.875rem;
+  border-radius: 0.9375rem;
+  opacity: 0;
+  transition: all 0.8s ease 0s;
   position: relative;
+  transform: perspective(37.5rem) translate(0px, -100%) rotateX(45deg);
 }
 .popup__close {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 18px;
+  right: 0.625rem;
+  top: 0.625rem;
+  font-size: 1.125rem;
+  cursor: pointer;
 }
 .header__top {
   background-color: #141414;
@@ -640,6 +657,13 @@ template {
   font-size: 1.5rem;
   margin: 0 0.4166666667em 0 0;
 }
+.actions-header__favorite {
+  font-size: 1.6875rem;
+}
+.actions-header__cart {
+  flex: 0 0 auto;
+}
+
 .phones-header__item {
   position: relative;
   display: flex;
@@ -678,6 +702,45 @@ template {
   cursor: pointer;
   font-weight: 700;
   line-height: 1.2222222222;
+  color: #E8AA31;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.cart-header__icon {
+  flex: 0 0 37px;
+  font-size: 2.1875rem;
+  position: relative;
+}
+.cart-header__icon span {
+  color: #fff;
+  width: 0.875rem;
+  height: 0.875rem;
+  background-color: #E8AA31;
+  position: absolute;
+  font-size: 0.4375rem;
+  border-radius: 50%;
+  top: -2px;
+  right: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-header__body {
+  font-size: 1rem;
+  line-height: 1.25;
+  flex: 0 0 auto;
+}
+.cart-header__summ {
+  font-weight: 500;
+}
+.cart-header__summ:not(:last-child) {
+  margin-bottom: 0.3125em;
+}
+.cart-header__link {
   color: #E8AA31;
 }
 

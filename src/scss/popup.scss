@@ -1,3 +1,7 @@
+body.lock {
+    overflow: hidden;
+}
+
 .popup {
     position: fixed;
     width: 100%;
@@ -7,6 +11,9 @@
     left: 0;
     opacity: 0;
     visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all .8s ease 0s;
     &.open {
         opacity: 1;
         visibility: visible;
@@ -16,22 +23,32 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 30px 10px;
+        padding: rem(30) rem(10);
+    }
+    &.open &__content {
+        transform: perspective(rem(600)) translate(0px, 0px) rotate(0deg);
+        opacity: 1;
     }
 
     &__content {
         background-color: #fff;
         color: #000;
-        max-width: 800px;
-        padding: 30px;
+        max-width: rem(800);
+        width: 100%;
+        padding: rem(30);
+        border-radius: rem(15);
+        opacity: 0;
+        transition: all .8s ease 0s;
         position: relative;
+        transform: perspective(rem(600)) translate(0px, -100%) rotateX(45deg);
     }
 
     &__close {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 18px;
+        right: rem(10);
+        top: rem(10);
+        font-size: rem(18);
+        cursor: pointer;
     }
 
     &__text {}

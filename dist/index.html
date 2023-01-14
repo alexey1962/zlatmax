@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.min.css">
 
@@ -62,11 +62,11 @@
                         </div>
 
                     </div>
-                   <button data-popup="#callback" class="phones-header__callback">Заказать звонок</button>
-                <div id="callback" aria-hidden="true" class="popup">
+                   <a href="#callback" class="phones-header__callback popup-link">Заказать звонок</a>
+                    <div id="callback" class="popup">
     <div class="popup__wrapper">
         <div class="popup__content">
-            <button data-close type="button" class="popup__close">X</button>
+            <button type="button" class="popup__close close-popup">X</button>
             <div class="popup__text">
                 Тут будет форма
             </div>
@@ -79,7 +79,7 @@
                     <div class="cart-header__icon _icon-cart"><span>0</span></div>
                     <div class="cart-header__body">
                         <div class="cart-header__summ">0 р.</div>
-                        <a href="#" class="cart-header__link">Оформить заказ</a>
+                        <a href="#" class="cart-header__link popup-link">Оформить заказ</a>
                     </div>
                 </div>
             </div>
