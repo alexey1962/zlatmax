@@ -1,0 +1,33 @@
+$browser-context: 16; // Default
+$rem-base: 16;
+
+@function em($pixels, $context: $browser-context) {
+    @return #{calc($pixels/$context)}em;
+}
+
+@function rem($pixels, $context: $rem-base) {
+    @return #{calc($pixels/$context)}rem;
+}
+
+@mixin adaptiveValue($func, $maxVal, $minVal) {
+    $addSize: $maxVal - $minVal;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media(min-width: 1000px) {
+        @if($func == "gap") {
+            gap: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+        } @else if($func =="column-gap") {
+            column-gap: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+        } @else if($func =="padding-left") {
+            padding-left: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+        }
+    }
+    @media(max-width: 1000px) {
+        @if($func == "gap") {
+            gap: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
+        } @else if($func =="column-gap") {
+            column-gap: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
+        } @else if($func =="padding-left") {
+            padding-left: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
+        }
+    }
+}
