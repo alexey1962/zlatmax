@@ -1,11 +1,14 @@
 .header {
-    &__top {
-        background-color: $mainDarkColor;
-        color: #fff;
-    }
+    &__top {}
+
+    &__body {}
+
+    &__catalog {}
 }
 //====================================================================================================================================================
 .top-header {
+    background-color: $mainDarkColor;
+    color: #fff;
     padding: rem(10) 0;
     &__container {
         display: flex;
@@ -25,6 +28,11 @@
             font-size: rem(28);
             margin-right: em(15, 28);
         }
+        @media (any-hover: hover) {
+            &:hover {
+                span {text-decoration: underline;}       
+            }
+        }
     }
 }
 .menu {
@@ -38,6 +46,11 @@
     &__link {
         font-size: rem(16);
         line-height: math.div(20, 16);
+        @media (any-hover: hover) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
     }
 }
 //====================================================================================================================================================
@@ -106,6 +119,11 @@
             font-size: rem(24);
             margin: 0 em(10, 24) 0 0;
         }
+        @media (any-hover: hover) {
+            &:hover {
+                span{text-decoration: underline;}
+            }
+        }
     }
 
     &__phones {}
@@ -168,6 +186,11 @@
         font-weight: 700;
         line-height: math.div(22, 18);
         color: $mainGold;
+        @media (any-hover: hover) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
     }
 }
 
@@ -210,6 +233,130 @@
 
     &__link {
         color: $mainGold;
+        @media (any-hover: hover) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+    }
+}
+//====================================================================================================================================================
+.catalog-header {
+    background-color: $mainDarkColor;
+    color: #fff;
+    position: relative;
+
+    &__container {}
+
+    &__menu {}
+}
+
+.menu-catalog {
+
+    &__list {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    &__item {}
+
+    &__link {
+        min-height: rem(70);
+        display: flex;
+        padding: 0 rem(10);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        transition: color .3s ease 0s;
+        &::after {
+            content: "";
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            bottom: 0;
+            left: rem(10);
+            height: 1px;
+            width: calc(100% - rem(20));
+            background-color: $mainGold;
+            transition: all .3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $mainGold;
+                &::after {
+                    opacity: 1;
+                    visibility: visible;
+
+                }
+            }
+        }
+    }
+
+    &__sub-menu {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 100%;
+        background-color: $mainDarkColor;
+    }
+}
+
+.sub-menu-catalog {
+    padding-bottom: rem(30);
+    &__block {
+        padding: 0 rem(10);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex: 1 1 auto;
+        display: grid;
+        gap: 30px;
+        justify-items: start;
+    }
+
+    &__category {
+        font-size: rem(16);
+        line-height: math.div(20, 16);
+        font-weight: 700;
+        padding: rem(30) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        gap: 20px;
+    }
+
+    &__item {}
+
+    &__link {
+        font-size: rem(16);
+        line-height: math.div(20, 16);
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__all {
+        font-size: rem(16);
+        color: $mainGold;
+        line-height: math.div(20, 16);
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 //====================================================================================================================================================
