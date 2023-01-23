@@ -785,6 +785,8 @@ body.lock {
   text-align: center;
   position: relative;
   transition: color 0.3s ease 0s;
+  color: #fff;
+  cursor: pointer;
 }
 .menu-catalog__link::after {
   content: "";
@@ -807,34 +809,49 @@ body.lock {
     visibility: visible;
   }
 }
+.menu-catalog__link._sub-menu-active {
+  color: #E8AA31;
+}
+.menu-catalog__link._sub-menu-active::after {
+  opacity: 1;
+  visibility: visible;
+}
 .menu-catalog__sub-menu {
-  position: absolute;
   width: 100%;
   left: 0;
   top: 100%;
   background-color: #141414;
 }
 
-.sub-menu-catalog {
-  padding-bottom: 1.875rem;
-}
 .sub-menu-catalog__block {
-  padding: 0 0.625rem;
-  display: flex;
-  justify-content: space-between;
+  display: none;
 }
-.sub-menu-catalog__column {
-  flex: 1 1 auto;
+.sub-menu-catalog__block_1 {
+  grid-template-columns: repeat(1, minmax(auto, 20rem));
+}
+.sub-menu-catalog__block_2 {
+  grid-template-columns: repeat(2, minmax(auto, 20rem));
+}
+.sub-menu-catalog__block_3 {
+  grid-template-columns: repeat(3, minmax(auto, 20rem));
+}
+.sub-menu-catalog__block_4 {
+  grid-template-columns: repeat(4, minmax(auto, 20rem));
+}
+.sub-menu-catalog__block_5 {
+  grid-template-columns: repeat(5, minmax(auto, 20rem));
+}
+.sub-menu-catalog__block._sub-menu-open {
   display: grid;
-  gap: 30px;
-  justify-items: start;
+}
+.sub-menu-catalog__container {
+  padding: 0 0.625rem;
 }
 .sub-menu-catalog__category {
   font-size: 1rem;
   line-height: 1.25;
   font-weight: 700;
-  padding: 1.875rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1.875rem 0.9375rem 1.875rem 0;
 }
 @media (any-hover: hover) {
   .sub-menu-catalog__category:hover {
@@ -842,8 +859,12 @@ body.lock {
   }
 }
 .sub-menu-catalog__list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  padding: 1.875rem 0.9375rem 1.875rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 .sub-menu-catalog__link {
   font-size: 1rem;
@@ -853,6 +874,9 @@ body.lock {
   .sub-menu-catalog__link:hover {
     text-decoration: underline;
   }
+}
+.sub-menu-catalog__footer {
+  padding: 1.875rem 0.9375rem 1.875rem 0;
 }
 .sub-menu-catalog__all {
   font-size: 1rem;

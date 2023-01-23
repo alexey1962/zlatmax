@@ -270,6 +270,8 @@
         text-align: center;
         position: relative;
         transition: color .3s ease 0s;
+        color: #fff;
+        cursor: pointer;
         &::after {
             content: "";
             position: absolute;
@@ -292,10 +294,16 @@
                 }
             }
         }
+        &._sub-menu-active {
+            color: $mainGold;
+         &::after {
+            opacity: 1;
+            visibility: visible;
+         }
+        }
     }
 
     &__sub-menu {
-        position: absolute;
         width: 100%;
         left: 0;
         top: 100%;
@@ -304,26 +312,27 @@
 }
 
 .sub-menu-catalog {
-    padding-bottom: rem(30);
     &__block {
-        padding: 0 rem(10);
-        display: flex;
-        justify-content: space-between;
+        display: none;
+        @for $var from 1 to 6 {
+                &_#{$var} {
+                    grid-template-columns: repeat($var, minmax(auto, rem(320)));
+                }
+            }
+        &._sub-menu-open {
+            display: grid;
+        }
     }
 
-    &__column {
-        flex: 1 1 auto;
-        display: grid;
-        gap: 30px;
-        justify-items: start;
+    &__container {
+        padding: 0 rem(10);
     }
 
     &__category {
         font-size: rem(16);
         line-height: math.div(20, 16);
         font-weight: 700;
-        padding: rem(30) 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: rem(30) rem(15) rem(30) 0;
         @media (any-hover: hover) {
             &:hover {
                 text-decoration: underline;
@@ -332,8 +341,12 @@
     }
 
     &__list {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 20px;
+        padding: rem(30) rem(15) rem(30) 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     &__item {}
@@ -346,6 +359,10 @@
                 text-decoration: underline;
             }
         }
+    }
+
+    &__footer {
+        padding: rem(30) rem(15) rem(30) 0;
     }
 
     &__all {
