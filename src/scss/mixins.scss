@@ -9,25 +9,24 @@ $rem-base: 16;
     @return #{calc($pixels/$context)}rem;
 }
 
-@mixin adaptiveValue($func, $maxVal, $minVal) {
-    $addSize: $maxVal - $minVal;
-    $addMobSize: $addSize + $addSize * 0.7;
-    @media(min-width: 1000px) {
-        @if($func == "gap") {
-            gap: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
-        } @else if($func =="column-gap") {
-            column-gap: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
-        } @else if($func =="padding-left") {
-            padding-left: calc(#{$minVal + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+@function percent($firstNum, $secondNum) {
+    @return math.div($firstNum, $secondNum)*100%;
+}
+
+@mixin adaptiveValue($func, $startVal, $minVal, $type: 1, $widthFrom: $maxWidthContainer, $widthTo: $minWidth) {
+    $addSize: $startVal - $minVal;
+
+    @if $type == 1 {
+        #{$func}: $startVal + px;
+        @media(max-width: #{$widthFrom + px}) {
+            #{$func}: calc(#{$minVal + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidthContainer - $widthTo}))
         }
-    }
-    @media(max-width: 1000px) {
-        @if($func == "gap") {
-            gap: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
-        } @else if($func =="column-gap") {
-            column-gap: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
-        } @else if($func =="padding-left") {
-            padding-left: calc(#{$minVal + px} + #{$addSize} * (100vw / #{$maxWidth}));
-        }
+    } @else if $type == 2 {
+        #{$func}: $startVal + px;
+        @media(min-width: #{$widthFrom + px}) {
+            #{$func}: calc(#{$minVal + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo}))
+        } 
+    } @else {
+        #{$func}: calc(#{$minVal + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo}))
     }
 }

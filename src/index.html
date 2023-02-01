@@ -1,18 +1,85 @@
 <!DOCTYPE html>
 <html lang='en'>
 @@include('./files/html/_head.html', {
-    "title": "Главная"
+"title": "Главная"
 })
+
 <body>
-    <div>
-        <div class="wrapper">
-            <main class="page">
-                @@include('./files/html/_header.html')
-            </main>
-        </div>
+  <div>
+    <div class="wrapper">
+      @@include('./files/html/_header.html')
+      <main class="page page_home">
+        <section class="page__main-block main-block">
+          <div class="main-block__container container">
+            <div class="main-block__body">
+              <div class="main-block__slider">
+                <div class="main-block__swiper">
+                  <div class="main-block__slide slide-main-block">
+                    <div class="slide-main-block__content">
+                      <h2 class="slide-main-block__title">Интернет магазин сертифицированных</h2>
+                      <div class="slide-main-block__subtitle">златоустовских ножей</div>
+                      <div class="slide-main-block__text">Добро пожаловать на официальный сайт
+                        «ЗЛАТМАКС»! В нашем магазине
+                        представлен наиболее широкий выбор Златоустовских ножей от
+                        Златоустовских
+                        Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                      </div>
+                    </div>
+                    <a href="#" class="slide-main-block__button">Подробнее</a>
+                  </div>
+                </div>
+              </div>
+              <div class="main-block__media media-main-block">
+                <div class="media-main-block__body">
+                  <div class="media-main-block__image">
+                    <img src="@img/mainpage/mainblock/image.png" alt="mainpage-img">
+                  </div>
+                  <div class="media-main-block__tips">
+                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_1"><span>+</span></div>
+                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_2"><span>+</span></div>
+                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_3"><span>+</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-block__advantages advantages-main">
+              <div class="advantages-main__item">
+                <div class="advantages-main__icon">
+                  <img src="@img/mainpage/mainblock/icons/G1.svg" alt="G1">
+                </div>
+                <div class="advantages-main__text">Гарантия 100% возврата
+                  денежных средств</div>
+              </div>
+              <div class="advantages-main__item">
+                <div class="advantages-main__icon">
+                  <img src="@img/mainpage/mainblock/icons/G2.svg" alt="G2">
+                </div>
+                <div class="advantages-main__text">Доставка по России,
+                  Казахстану и Белоруссии</div>
+              </div>
+              <div class="advantages-main__item">
+                <div class="advantages-main__icon">
+                  <img src="@img/mainpage/mainblock/icons/G3.svg" alt="G3">
+                </div>
+                <div class="advantages-main__text">Возможность оформление
+                  заказа без регистрации.</div>
+              </div>
+              <div class="advantages-main__item">
+                <div class="advantages-main__icon">
+                  <img src="@img/mainpage/mainblock/icons/G4.svg" alt="G4">
+                </div>
+                <div class="advantages-main__text">Скидки постоянным
+                  покупателям.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
+  </div>
 
 
-    <script src="js/app.min.js"></script>
+  <script src="js/app.min.js"></script>
 </body>
+
 </html>

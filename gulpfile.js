@@ -21,6 +21,7 @@ import { otfToTft, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js"
 import { svgSprive } from "./gulp/tasks/svgSprive.js"
 import { zip } from "./gulp/tasks/zip.js"
 import { ftp } from "./gulp/tasks/ftp.js"
+import { php } from "./gulp/tasks/php.js"
 
 function watcher() {
     gulp.watch(path.watch.files, copy)
@@ -28,13 +29,14 @@ function watcher() {
     gulp.watch(path.watch.scss, scss)
     gulp.watch(path.watch.js, js)
     gulp.watch(path.watch.images, images)
+    gulp.watch(path.watch.php, php)
 }
 
 export { svgSprive }
 
 const fonts = gulp.series(otfToTft, ttfToWoff, fontsStyle)
 
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images))
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, php, scss, js, images))
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server))
 const build = gulp.series(reset, mainTasks)

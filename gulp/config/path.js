@@ -12,6 +12,7 @@ export const path = {
         images: `${buildFolder}/img/`,
         fonts: `${buildFolder}/fonts/`,
         files: `${buildFolder}/files/`,
+        php: `${buildFolder}/`
     },
     src: {
         js: `${srcFolder}/js/app.js`,
@@ -21,13 +22,15 @@ export const path = {
         html: `${srcFolder}/*.html`,
         files: `${srcFolder}/files/**/*.*`,
         svgicons: `${srcFolder}/svgicons/*.svg`,
+        php: `${srcFolder}/backend/*.php`
     },
     watch: {
         js: `${srcFolder}/js/**/*.js`,
         scss: `${srcFolder}/scss/**/*.scss`,
         html: `${srcFolder}/**/*.html`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,tiff,bmp,svg,ico}`,
-        files: `${srcFolder}/files/**/*.*`, 
+        files: `${srcFolder}/files/**/*.*`,
+        php: `${srcFolder}/backend/*.php` 
     },
     clean: buildFolder,
     buildFolder: buildFolder,
