@@ -14,7 +14,8 @@
   "author": "sandrlein",
   "license": "ISC",
   "dependencies": {
-    "gulp-cli": "^2.3.0"
+    "gulp-cli": "^2.3.0",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "browser-sync": "^2.27.11",
@@ -43,9 +44,11 @@
     "gulp-webp-html-nosvg": "^1.1.1",
     "gulp-webpcss": "^1.1.1",
     "gulp-zip": "^5.1.0",
+    "jquery": "^3.6.3",
     "normalize": "^0.3.1",
     "sass": "^1.57.1",
-    "swiper": "^8.4.5",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^8.4.7",
     "vinyl-ftp": "^0.6.1",
     "webp-converter": "2.2.3",
     "webpack": "^5.75.0",

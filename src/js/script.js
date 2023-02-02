@@ -34,3 +34,11 @@ function documentActions(e) {
         e.preventDefault()
     }
 }
+
+const mediaMainBlockTips = document.querySelectorAll('.media-main-block__tip')
+for (let MediaTip of mediaMainBlockTips) {
+    MediaTip.addEventListener('mouseover', () => {
+        MediaTip.style.transition = 'all .3s ease 0s'
+        tippy('[data-tippy-content]');
+    })
+}
