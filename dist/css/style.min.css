@@ -20,6 +20,11 @@
   font-weight: 600;
   font-style: normal;
 }
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
 html {
   font-size: 18px;
 }
@@ -546,12 +551,85 @@ body.lock {
 .main-block__body {
   display: grid;
   grid-template-columns: 1fr 39.6875%;
+  align-items: start;
+}
+.main-block__slider {
+  margin: 0 -1.25rem;
+  padding: 0 1.875rem;
+}
+.main-block__swiper:not(:last-child) {
+  margin-bottom: 1.875rem;
 }
 .main-block__advantages {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   align-content: center;
+}
+.controll-main-block {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.controll-main-block__dotts {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 0.9375rem;
+}
+.controll-main-block__dotts .swiper-pagination-bullet {
+  cursor: pointer;
+  height: 1.875rem;
+  width: 1.125rem;
+  position: relative;
+}
+.controll-main-block__dotts .swiper-pagination-bullet::after {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  width: 100% !important;
+  top: 50%;
+  transform: translate(0px, -50%);
+  width: 0.9375rem;
+  height: 0.125rem;
+}
+.controll-main-block__dotts .swiper-pagination-bullet::before {
+  content: "";
+  background-color: #E8AA31;
+  width: 0.625rem;
+  height: 0.625rem;
+  top: 50%;
+  left: 0;
+  border-radius: 50%;
+  transform: translate(0px, -50%);
+  position: absolute;
+  opacity: 0;
+}
+.controll-main-block__dotts .swiper-pagination-bullet-active {
+  width: 1.875rem;
+  transition: width 0.6s ease 0s;
+}
+.controll-main-block__dotts .swiper-pagination-bullet-active::after {
+  background-color: #E8AA31;
+}
+.controll-main-block__dotts .swiper-pagination-bullet-active::before {
+  opacity: 1;
+  transition: left 3.8s linear 0s;
+  left: 1.25rem;
+}
+.fraction-controll {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+.fraction-controll__current {
+  color: #E8AA31;
+  font-size: 1.5rem;
+}
+.fraction-controll__all {
+  font-size: 1.125rem;
 }
 
 .slide-main-block__content {

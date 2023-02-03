@@ -8,11 +8,19 @@
   &__body {
     display: grid;
     grid-template-columns: 1fr percent(635, 1600);
+    align-items: start;
   }
 
-  &__slider {}
+  &__slider {
+    margin:  0 rem(-20);
+    padding: 0 rem(30);
+  }
 
-  &__swiper {}
+  &__swiper {
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
 
   &__slide {}
 
@@ -24,7 +32,83 @@
     justify-items: center;
     align-content: center;
   }
+
+    &__controll {}
+
+  
 }
+
+ .controll-main-block {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: rem(20);
+   &__dotts {
+    display: inline-grid;
+    grid-auto-flow: column;
+    gap: rem(15);
+    .swiper-pagination-bullet {
+      cursor: pointer;
+      height: rem(30);
+      width: rem(18); 
+      position: relative;
+      &::after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100% !important;
+        top: 50%;
+        transform: translate(0px, -50%);
+        width: rem(15);
+        height: rem(2);
+      }
+      &::before {
+        content: "";
+        background-color: $mainGold;
+        width: rem(10);
+        height: rem(10);
+        top: 50%;
+        left: 0;
+        border-radius: 50%;
+        transform: translate(0px, -50%);
+        position: absolute;
+        opacity: 0;
+      }
+    }
+    .swiper-pagination-bullet-active {
+      width: rem(30);
+      transition: width .6s ease 0s;
+      &::after {
+        background-color: $mainGold;
+      }
+      &::before {
+        opacity: 1;
+        transition: left 3.80s linear 0s;
+        left: rem(20);
+      }
+    }
+   }
+
+   &__fraction {
+    
+   }
+ }
+
+ .fraction-controll {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: .2em;
+   &__current {
+    color: $mainGold;
+    font-size: rem(24); 
+   }
+
+   &__all {
+    font-size: rem(18);
+   }
+ }
 
 .slide-main-block {
 
