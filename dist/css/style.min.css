@@ -840,6 +840,10 @@ body.lock {
   line-height: 1.6;
 }
 
+.main-block__slider {
+  width: 600px;
+}
+
 .top-header {
   background-color: #141414;
   color: #fff;
