@@ -810,6 +810,7 @@ body.lock {
   grid-template-columns: repeat(4, auto);
   justify-content: space-between;
   gap: 1.25rem;
+  text-align: center;
 }
 @media (max-width: 61.99875em) {
   .advantages-main {
@@ -838,6 +839,113 @@ body.lock {
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.6;
+}
+
+.catalog-cards {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+@media (max-width: 1590px) {
+  .catalog-cards {
+    padding-top: calc(40px + 60 * ((100vw - 320px) / 1270));
+  }
+}
+@media (max-width: 1590px) {
+  .catalog-cards {
+    padding-bottom: calc(40px + 30 * ((100vw - 320px) / 1270));
+  }
+}
+.catalog-cards__container {
+  display: grid;
+  gap: 1.875rem;
+}
+@media (max-width: 29.99875em) {
+  .catalog-cards__container {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+}
+.item-catalog-cards {
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  min-height: 18.125rem;
+}
+.item-catalog-cards__body {
+  padding: 1.875rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 29.99875em) {
+  .item-catalog-cards__body:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+}
+.item-catalog-cards__title:not(:last-child) {
+  margin-bottom: 1.25em;
+}
+.item-catalog-cards__link-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.4166666667;
+  display: inline-block;
+}
+.item-catalog-cards__link-title::after {
+  content: "";
+  width: 4.375rem;
+  height: 0.125rem;
+  margin-top: 0.9375rem;
+  display: block;
+  background-color: #E8AA31;
+  transition: width 0.8s ease 0s;
+}
+@media (any-hover: hover) {
+  .item-catalog-cards__link-title:hover::after {
+    width: 100%;
+  }
+}
+.item-catalog-cards__item {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.item-catalog-cards__item::before {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: #E8AA31;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0.4444444444em;
+}
+.item-catalog-cards__item:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.item-catalog-cards__link {
+  font-size: 1.125rem;
+  line-height: 1.3333333333;
+}
+@media (any-hover: hover) {
+  .item-catalog-cards__link:hover {
+    text-decoration: underline;
+  }
+}
+.item-catalog-cards__image {
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.item-catalog-cards__image img {
+  max-width: 100%;
+}
+@media (min-width: 29.99875em) {
+  .item-catalog-cards__image {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
 }
 
 .top-header {

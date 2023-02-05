@@ -582,8 +582,7 @@ template {
 @import "header";
 
 .page {
-    &_home {
-
-    }
+    &_home {}
     &__main-block {}
+    &__catalog-cards {}
 }

@@ -289,6 +289,7 @@
   grid-template-columns: repeat(4, auto);
   justify-content: space-between;
   gap: rem(20);
+  text-align: center;
   @media(max-width: $tablet) {
     row-gap: rem(30);
     grid-template-columns: repeat(2, 1fr);
@@ -315,5 +316,118 @@
     font-weight: 600;
     font-size: rem(20);
     line-height: math.div(32, 20);
+  }
+}
+
+//==============================================================================================================================================
+.catalog-cards {
+  @include adaptiveValue('padding-top', 100, 40);
+  @include adaptiveValue('padding-bottom', 70, 40);
+
+  &__container {
+    display: grid;
+    gap: rem(30);
+    @media(max-width: $mobileSmall) {
+      grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
+    }
+  }
+
+  &__item {
+    
+  }
+}
+
+.item-catalog-cards {
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  min-height: rem(290);
+  &__body {
+    padding: rem(30);
+    position: relative;
+    z-index: 2;
+    @media(max-width: $mobileSmall) {
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: em(30, 24);
+    }
+  }
+
+  &__link-title {
+    font-weight: 600;
+    font-size: rem(24);
+    line-height: math.div(34, 24);
+    display: inline-block;
+    &::after {
+      content: "";
+      width: rem(70);
+      height: rem(2);
+      margin-top: rem(15);
+      display: block;
+      background-color: $mainGold;
+      transition: width .8s ease 0s;
+    }
+    @media(any-hover: hover){
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+      }
+    }
+  }
+
+  &__list {}
+
+  &__item {
+    position: relative;
+    padding-left: rem(20);
+    &::before {
+      content: "";
+      width: rem(6);
+      height: rem(6);
+      background-color: $mainGold;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: em(8, 18);
+    }
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__link {
+    font-size: rem(18);
+    line-height: math.div(24, 18);
+    @media(any-hover: hover){
+        &:hover {
+          text-decoration: underline;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%; 
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    img {
+      max-width: 100%;
+    }
+  
+    @media(min-width: $mobileSmall) {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
   }
 }
