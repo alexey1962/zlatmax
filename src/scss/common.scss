@@ -1,0 +1,59 @@
+.page {
+
+  &__products-slider {}
+}
+
+.products-slider {
+
+  &__container {}
+
+  &__header {}
+
+  &__title {}
+
+  &__more {}
+
+  &__slider {}
+
+  &__swiper {}
+
+  &__slide {}
+}
+
+.product-card {
+
+  &__image-ibg {
+
+    &_contain {}
+  }
+
+  &__body {}
+
+  &__title {}
+
+  &__link-title {}
+
+  &__info {}
+
+  &__rating {}
+
+  &__footer {}
+
+  &__cart {}
+}
+
+.info-product-card {
+
+  &__size {}
+
+  &__materials {}
+}
+
+.footer-product-card {
+
+  &__price {}
+
+  &__compare {}
+
+  &__favorite {}
+}

@@ -5,5 +5,6 @@ flsFunctions.spollers()
 flsFunctions.initPopups()
 flsFunctions.dynamicAdapt()
 flsFunctions.swiper()
+flsFunctions.rating()
 
 import './script.js'

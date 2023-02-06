@@ -475,7 +475,7 @@ export function swiper() {
         observer: true,
         observeParents: true,
         slidesPerView: 1,
-        spaceBetween: 0,
+        spaceBetween: 20,
         speed: 800,
         loop: true,
 
@@ -534,4 +534,55 @@ export function swiper() {
   window.addEventListener('load', function(e) {
     initSliders()
   })
+}
+
+export function rating() {
+  const ratings = document.querySelectorAll('.rating')
+  if(ratings.length > 0) {
+    initRatings()
+  }
+
+  function initRatings() {
+    let ratingActive, ratingValue
+    for (let i = 0; i < ratings.length; i++) {
+      const rating = ratings[i]
+      initRating(rating)
+    }
+    function initRating(rating) {
+      initatingVars(rating)
+      setRatingActiveWidth()
+      if (rating.classList.contains('rating_set')) {
+        setRating(rating)
+      }
+    }
+
+    function initatingVars(rating) {
+      ratingActive = rating.querySelector('.rating__active')
+      ratingValue = rating.querySelector('.rating__value')
+    }
+
+    function setRatingActiveWidth(i = ratingValue.innerHTML) {
+      const ratingActiveWidth = i / 0.05
+      ratingActive.style.width = `${ratingActiveWidth}%`
+    }
+
+    function setRating(rating) {
+      const ratingItems = rating.querySelectorAll('.rating__item')
+      for (let i = 0; i < ratingItems.length; i++) {
+        const ratingItem = ratingItems[i]
+        ratingItem.addEventListener('mouseenter', function (e) {
+          initatingVars(rating)
+          setRatingActiveWidth(ratingItem.value)
+        })
+        ratingItem.addEventListener('mouseleave', function (e) {
+          setRatingActiveWidth()
+        })
+        ratingItem.addEventListener('click', function (e) {
+          initatingVars(rating)
+          ratingValue.innerHTML = i + 1
+          setRatingActiveWidth()
+        })
+      }
+    }
+  }
 }

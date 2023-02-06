@@ -1,13 +1,15 @@
 .main-block {
   background: url('../img/mainpage/mainblock/bg.png') center / cover no-repeat;
-  padding-top: rem(40);
-  padding-bottom: rem(60);
+  @include adaptiveValue('padding-top', 40, 40);
+  @include adaptiveValue('padding-bottom', 60, 40);
 
   &__container {}
 
   &__body {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     align-items: start;
+    justify-content: center;
     row-gap: rem(40);
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 43, 30);
@@ -18,6 +20,8 @@
   }
 
   &__slider {
+    cursor: pointer;
+    width: rem(915);
     margin:  0 rem(-20);
     padding: 0 rem(30);
   }
@@ -123,6 +127,9 @@
     @media(min-width: $tablet) {
       padding: 0 rem(40) 0 0;
     }
+    @media(max-width: $mobile) {
+      max-width: rem(320);
+    }
   }
 
   &__title {
@@ -147,6 +154,9 @@
     line-height: math.div(30, 20);
     color: rgba(255, 255, 255, .7);
     @include adaptiveValue("font-size", 20, 16, 1, 992);
+    @media(max-width: $mobileSmall) {
+      max-width: rem(260);
+    }
   }
 
   &__button {
@@ -165,9 +175,6 @@
       &:hover {
         box-shadow: 0px 4px 25px rgba(232, 170, 49, 0.83);
       }
-    }
-    @media(max-width: $mobileSmall) {
-      width: 100%;
     }
   }
 }
@@ -319,10 +326,6 @@
   }
 }
 
-.main-block__slider {
-  width: 600px;
-}
-
 //==============================================================================================================================================
 .catalog-cards {
   @include adaptiveValue('padding-top', 100, 40);
@@ -331,6 +334,7 @@
   &__container {
     display: grid;
     gap: rem(30);
+    grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
     @media(max-width: $mobileSmall) {
       grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
     }
@@ -346,16 +350,21 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   position: relative;
   min-height: rem(290);
-  &__body {
-    padding: rem(30);
-    position: relative;
-    z-index: 2;
-    @media(max-width: $mobileSmall) {
-      &:not(:last-child) {
-        margin-bottom: rem(20);
+  @media(max-width: $mobileSmall) {
+      & {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        max-width: rem(320);
       }
     }
+  &__body {
+    @include adaptiveValue('padding', 30, 20);
+    position: relative;
+    z-index: 2;
   }
+  
 
   &__title {
     &:not(:last-child) {
@@ -435,3 +444,4 @@
     }
   }
 }
+//==============================================================================================================================================

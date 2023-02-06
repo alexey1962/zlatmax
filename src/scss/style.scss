@@ -45,6 +45,10 @@ body {
     margin: 0 auto;
 }
 
+:root {
+    --swiper-theme-color: none !important;
+}
+
 ul {
     padding: 0;
     margin: 0;
@@ -232,6 +236,7 @@ main {
  */
 
 h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
     font-size: inherit;
     margin: 0;
 }
@@ -577,9 +582,11 @@ template {
 @import "../fonticons.css";
 
 @import "popup";
+@import "rating";
 
 @import "index";
 @import "header";
+@import "common";
 
 .page {
     &_home {}
