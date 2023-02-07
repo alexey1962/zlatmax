@@ -3,7 +3,9 @@
   &__rating {
     display: flex;
     align-items: flex-end;
-    font-size: rem(22);
+    font-size: rem(30);
+    justify-content: space-between;
+    transition: all .3s ease 0s;
   }
 }
 
@@ -13,6 +15,7 @@
 
   &__body {
     position: relative;
+    letter-spacing: em(3, 15);
     &::before {
       content: "★★★★★";
       display: block;
@@ -54,10 +57,12 @@
   }
 
   &__value {
+    display: none;
     font-size: 80%;
   }
 
   &__info {
-    font-size: 80%;
+    font-size: rem(16);
+    color: #ababab;
   }
 }

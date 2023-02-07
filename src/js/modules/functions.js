@@ -499,6 +499,28 @@ export function swiper() {
       })
     }
 
+    if (document.querySelector('.products-slider__slider')) {
+      new Swiper('.products-slider__slider', {
+        modules: [Navigation, Pagination, Autoplay],
+
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        observer: true,
+        observeParents: true,
+        slidesPerView: 4,
+        watchOverflow: true,
+        spaceBetween: 30,
+        speed: 800,
+
+        pagination: {
+          el: '.products-slider__dotts',
+          clickable: true,
+        },
+      })
+    }
+
     
   }
   function initSlidersScrolls() {

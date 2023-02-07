@@ -7,53 +7,216 @@
 
   &__container {}
 
-  &__header {}
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  &__title {}
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
 
-  &__more {}
+  &__title {
+    letter-spacing: 0.05em;
+    font-size: rem(30);
+    font-weight: 700;
+    line-height: math.div(46, 30);
+  }
 
-  &__slider {}
+  &__more {
+    color: rgba(20, 20, 20, 0.58);
+    transition: color .3s ease 0s;
+    font-weight: 600;
+    font-size: rem(18);
+    display: inline-flex;
+    align-items: center;
+    gap: em(15, 18);
+
+    &::after {
+      font-family: 'icomoon';
+      content: "\e90c";
+      font-size: em(7, 18);
+      transform: rotate(90deg);
+      color: $mainGold;
+    }
+
+    @media(any-hover: hover) {
+      &:hover {
+        color: rgba(20, 20, 20, 1);
+      }
+    }
+  }
+
+  &__slider {
+    padding: rem(15);
+    margin: 0 rem(-15);
+  }
 
   &__swiper {}
 
   &__slide {}
+
+  &__dotts {
+    display: grid;
+    grid-auto-flow: column;
+    gap: rem(15);
+    justify-content: center;
+
+    .swiper-pagination-bullet {
+      background: none;
+      opacity: none;
+
+      cursor: pointer;
+      height: rem(30);
+      width: rem(18);
+      position: relative;
+
+      &::after {
+        content: "";
+        background-color: #898989;
+        position: absolute;
+        width: 100% !important;
+        top: 50%;
+        transform: translate(0px, -50%);
+        width: rem(15);
+        height: rem(2);
+      }
+
+      &::before {
+        content: "";
+        background-color: $mainGold;
+        width: rem(10);
+        height: rem(10);
+        top: 50%;
+        left: 0;
+        border-radius: 50%;
+        transform: translate(0px, -50%);
+        position: absolute;
+        opacity: 0;
+      }
+    }
+  }
+  .swiper-pagination-bullet-active {
+      width: rem(30);
+      transition: width .6s ease 0s;
+      &::after {
+        background-color: $mainGold;
+      }
+      &::before {
+        opacity: 1;
+        transition: left 3.80s linear 0s;
+        left: rem(20);
+      }
+    }
 }
 
 .product-card {
+  margin: rem(5);
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow .3s ease 0s;
+
+  @media(any-hover: hover) {
+    &:hover {
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+    }
+  }
 
   &__image-ibg {
+    text-align: center;
 
     &_contain {}
   }
 
-  &__body {}
+  &__body {
+    padding: rem(20);
+    display: flex;
+    flex-direction: column;
+  }
 
-  &__title {}
+  &__title {
+    flex: 1 1 auto;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(34, 20);
+
+    &:not(:last-child) {
+      margin-bottom: em(10, 20);
+    }
+  }
 
   &__link-title {}
 
-  &__info {}
+  &__info {
+    &:not(:last-child) {
+      margin-bottom: em(10, 16);
+    }
+  }
 
-  &__rating {}
+  &__rating {
+    &:not(:last-child) {
+      margin-bottom: rem(26);
+    }
+  }
 
-  &__footer {}
+  &__footer {
+    border-top: 1px solid rgba(20, 20, 20, 0.5);
+    padding: rem(20) 0;
+    display: flex;
+    align-items: center;
+    gap: rem(15);
+  }
 
-  &__cart {}
-}
+  &__price {
+    flex: 1 1 auto;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(34, 20);
+  }
 
-.info-product-card {
+  &__compare,
+  &__favorite {
+    font-size: rem(24);
+    transition: color .3s ease 0s;
 
-  &__size {}
-
-  &__materials {}
-}
-
-.footer-product-card {
-
-  &__price {}
+    @media(any-hover: hover) {
+      &:hover {
+        color: $mainGold;
+      }
+    }
+  }
 
   &__compare {}
 
   &__favorite {}
+
+  &__cart {
+    width: 100%;
+
+    span {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        margin-left: rem(16);
+      }
+    }
+  }
+}
+
+.info-product-card {
+  color: #ababab;
+  display: flex;
+  justify-content: space-between;
+  gap: rem(10);
+  font-size: rem(16);
+
+  &__size {}
+
+  &__materials {}
 }
