@@ -2,10 +2,11 @@
 
   &__rating {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     font-size: rem(30);
     justify-content: space-between;
     transition: all .3s ease 0s;
+    flex-wrap: wrap;
   }
 }
 
@@ -64,5 +65,6 @@
   &__info {
     font-size: rem(16);
     color: #ababab;
+    margin-top: rem(8);
   }
 }

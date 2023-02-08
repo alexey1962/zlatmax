@@ -12,6 +12,18 @@
     align-items: center;
     justify-content: space-between;
 
+    @media(max-width: $mobileSmall) {
+      & {
+        flex-direction: column;
+        & > *:not(:last-child) {
+          margin-bottom: rem(5);
+        }
+      }
+      .products-slider__more {
+        gap: rem(5);
+       }
+    }
+
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 50, 30);
     }
@@ -22,6 +34,8 @@
     font-size: rem(30);
     font-weight: 700;
     line-height: math.div(46, 30);
+    @include adaptiveValue("font-size", 30, 24);
+    @include adaptiveValue("line-height", 46, 32);
   }
 
   &__more {
@@ -60,12 +74,16 @@
   &__dotts {
     display: grid;
     grid-auto-flow: column;
-    gap: rem(15);
     justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: rem(60);
+    width: auto !important;
 
     .swiper-pagination-bullet {
-      background: none;
-      opacity: none;
+      margin: 0 rem(7.5);
+      background: none !important;
+      opacity: 100 !important;
 
       cursor: pointer;
       height: rem(30);
@@ -195,7 +213,8 @@
 
   &__cart {
     width: 100%;
-
+    @include adaptiveValue('padding-right', 3.25, 1.25);
+    @include adaptiveValue('padding-left', 3.25, 1.25);
     span {
       display: flex;
       flex-direction: row-reverse;

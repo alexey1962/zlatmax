@@ -49,6 +49,11 @@ body {
     --swiper-theme-color: none !important;
 }
 
+.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    transform: none !important;
+}
+
 ul {
     padding: 0;
     margin: 0;

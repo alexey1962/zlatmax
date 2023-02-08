@@ -501,7 +501,7 @@ export function swiper() {
 
     if (document.querySelector('.products-slider__slider')) {
       new Swiper('.products-slider__slider', {
-        modules: [Navigation, Pagination, Autoplay],
+        modules: [Navigation, Pagination],
 
         autoplay: {
           delay: 3000,
@@ -517,7 +517,28 @@ export function swiper() {
         pagination: {
           el: '.products-slider__dotts',
           clickable: true,
+          dynamicBullets: true,
         },
+
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            autoHeight: true,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1370: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          }
+        }
       })
     }
 
