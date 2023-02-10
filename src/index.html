@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div class="main-block__controll controll-main-block">
-                  <div class="controll-main-block__dotts"></div>
+                  <div class="controll-main-block__dotts dotts"></div>
                   <div class="controll-main-block__fraction fraction-controll">
                     <span class="fraction-controll__current">01</span> / <span class="fraction-controll__all">0</span>
                   </div>
@@ -216,6 +216,11 @@
           @@include('./files/html/_products-slider.html', {
           "title": "Хиты продаж",
           "moretext": "Перейти в каталог",
+          })
+        </section>
+        <section class="page__new-products new-products">
+          @@include('./files/html/_products-new.html', {
+          "title": "Новинки",
           })
         </section>
       </main>

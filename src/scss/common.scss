@@ -69,7 +69,11 @@
 
   &__swiper {}
 
-  &__slide {}
+    @media(max-width: $mobileSmall) {
+      &__dotts {
+        transform: translateX(20%) !important;
+      }
+    }
 
   &__dotts {
     display: grid;
@@ -130,9 +134,9 @@
 }
 
 .product-card {
+  background-color: #fff;
   margin: rem(5);
   display: grid;
-  height: 100%;
   grid-template-rows: auto 1fr;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   transition: box-shadow .3s ease 0s;
@@ -160,6 +164,12 @@
     font-weight: 600;
     font-size: rem(20);
     line-height: math.div(34, 20);
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:not(:last-child) {
       margin-bottom: em(10, 20);
@@ -237,5 +247,150 @@
 
   &__size {}
 
-  &__materials {}
+  &__materials {
+    text-align: right;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+//==============================================================================================================================================
+.products-new {
+  background: url("../img/new-products/bg.jpg") bottom / cover no-repeat;
+  @include adaptiveValue('padding-top', 55, 20);
+  @include adaptiveValue('padding-bottom', 55, 20);
+
+  &__container {
+    display: grid;
+    grid-template-columns: percent(400, 1600) 1fr;
+  }
+
+  &__body {
+    @include adaptiveValue('padding-right', 70, 30);
+  }
+
+  &__title {
+    font-weight: 700;
+    color: #fff;
+    font-size: rem(30);
+    line-height: math.div(46, 30);
+    &:not(:last-child) {
+      margin-bottom: em(30, 30);
+    }
+  }
+
+  &__text {
+    font-size: rem(18);
+    line-height: math.div(27, 18);
+    letter-spacing: 0.03em;
+    color: rgba(#fff, 0.7);
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 60, 20);
+    }
+  }
+
+  &__link {}
+
+  &__slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 0;
+    padding-top: rem(37);
+  }
+
+  &__swiper {}
+
+  &__slide {
+  }
+
+  &__dotts {
+    position: relative;
+    z-index: 2;
+  }
+
+}
+
+//==============================================================================================================================================
+.dotts {
+  display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: rem(60);
+    width: auto !important;
+  
+    .swiper-pagination-bullet {
+      margin: 0 rem(7.5);
+      background: none !important;
+      opacity: 100 !important;
+  
+      cursor: pointer;
+      height: rem(30);
+      width: rem(18);
+      position: relative;
+  
+      &::after {
+        content: "";
+        background-color: #898989;
+        position: absolute;
+        width: 100% !important;
+        top: 50%;
+        transform: translate(0px, -50%);
+        width: rem(15);
+        height: rem(2);
+      }
+  
+      &::before {
+        content: "";
+        background-color: $mainGold;
+        width: rem(10);
+        height: rem(10);
+        top: 50%;
+        left: 0;
+        border-radius: 50%;
+        transform: translate(0px, -50%);
+        position: absolute;
+        opacity: 0;
+      }
+    }
+    .swiper-pagination-bullet-active {
+    width: rem(30);
+    transition: width .6s ease 0s;
+  
+    &::after {
+      background-color: $mainGold;
+    }
+  
+    &::before {
+      opacity: 1;
+      transition: left 3.80s linear 0s;
+      left: rem(20);
+    }
+  }
+  }
+//==============================================================================================================================================
+
+.link-arrow {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: $mainGold;
+  font-size: rem(20);
+  &::before {
+    margin-left: em(15, 20);
+    transform: rotate(-90deg);
+    font-size: rem(8);
+  }
+  @media(any-hover: hover){
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
 }
