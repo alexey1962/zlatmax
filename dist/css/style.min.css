@@ -1171,6 +1171,104 @@ body.lock {
   }
 }
 
+.products-block {
+  padding-bottom: 120px;
+}
+@media (max-width: 1590px) {
+  .products-block {
+    padding-bottom: calc(55px + 65 * ((100vw - 320px) / 1270));
+  }
+}
+.products-block__container {
+  display: grid;
+  gap: 1.875rem;
+}
+@media (min-width: 61.99875em) {
+  .products-block__container {
+    grid-template-columns: repeat(auto-fit, minmax(37.5rem, 1fr));
+  }
+}
+.products-block .product-block {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  min-height: 18.125rem;
+}
+@media (max-width: 29.99875em) {
+  .products-block .product-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 20rem;
+  }
+}
+.products-block .product-block__body {
+  padding: 30px;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 1590px) {
+  .products-block .product-block__body {
+    padding: calc(20px + 10 * ((100vw - 320px) / 1270));
+  }
+}
+.products-block .product-block__title:not(:last-child) {
+  margin-bottom: 1.25em;
+}
+.products-block .product-block__text {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.products-block .product-block__text:not(:last-child) {
+  margin-bottom: 2.5555555556em;
+}
+@media (min-width: 44.375em) {
+  .products-block .product-block__text {
+    max-width: 16.5625rem;
+  }
+}
+.products-block .product-block__link-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.4166666667;
+  display: inline-block;
+}
+.products-block .product-block__link-title::after {
+  content: "";
+  width: 4.375rem;
+  height: 0.125rem;
+  margin: 0.9375rem 0 2.125rem;
+  display: block;
+  background-color: #E8AA31;
+  transition: width 0.8s ease 0s;
+}
+@media (any-hover: hover) {
+  .products-block .product-block__link-title:hover::after {
+    width: 100%;
+  }
+}
+.products-block .product-block__image {
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.products-block .product-block__image img {
+  max-width: 100%;
+}
+@media (min-width: 44.375em) {
+  .products-block .product-block__image {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+}
+
 .top-header {
   background-color: #141414;
   color: #fff;
