@@ -1076,6 +1076,101 @@ body.lock {
   }
 }
 
+.sale-products {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+@media (max-width: 1590px) {
+  .sale-products {
+    padding-top: calc(40px + 80 * ((100vw - 320px) / 1270));
+  }
+}
+@media (max-width: 1590px) {
+  .sale-products {
+    padding-bottom: calc(40px + 80 * ((100vw - 320px) / 1270));
+  }
+}
+
+.article-module {
+  padding-bottom: 120px;
+}
+@media (max-width: 1590px) {
+  .article-module {
+    padding-bottom: calc(40px + 80 * ((100vw - 320px) / 1270));
+  }
+}
+.article-module__title {
+  letter-spacing: 0.05em;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.5333333333;
+}
+.article-module__title:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+.article-module__item {
+  margin-bottom: 10px;
+}
+
+.item-article {
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .item-article:hover {
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+.item-article__image-ibg img {
+  width: 100%;
+  height: 100%;
+}
+.item-article__body {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+@media (max-width: 1590px) {
+  .item-article__body {
+    padding: calc(15px + 10 * ((100vw - 320px) / 1270));
+  }
+}
+.item-article__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-article__title:not(:last-child) {
+  margin-bottom: 20px;
+}
+@media (max-width: 1590px) {
+  .item-article__title:not(:last-child) {
+    margin-bottom: calc(5px + 15 * ((100vw - 320px) / 1270));
+  }
+}
+.item-article__link-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.item-article__date {
+  color: #ababab;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (any-hover: hover) {
+  .item-article__date:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
 .top-header {
   background-color: #141414;
   color: #fff;
