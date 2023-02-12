@@ -544,7 +544,7 @@ export function swiper() {
 
     if (document.querySelector('.products-new')) {
       new Swiper('.products-new__slider', {
-        modules: [Navigation, Pagination],
+        modules: [Navigation, Pagination, Autoplay],
 
         autoplay: {
           delay: 3000,
@@ -570,11 +570,11 @@ export function swiper() {
             spaceBetween: 0,
             autoHeight: true,
           },
-          768: {
+          820: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          1370: {
+          1330: {
             slidesPerView: 3,
             spaceBetween: 30,
           }

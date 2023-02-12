@@ -1712,7 +1712,7 @@ body.lock {
 .products-new {
   background: url("../img/new-products/bg.jpg") bottom/cover no-repeat;
   padding-top: 55px;
-  padding-bottom: 55px;
+  padding-bottom: 25px;
 }
 @media (max-width: 1590px) {
   .products-new {
@@ -1721,12 +1721,30 @@ body.lock {
 }
 @media (max-width: 1590px) {
   .products-new {
-    padding-bottom: calc(20px + 35 * ((100vw - 320px) / 1270));
+    padding-bottom: calc(20px + 5 * ((100vw - 320px) / 1270));
   }
 }
 .products-new__container {
   display: grid;
   grid-template-columns: 25% 1fr;
+}
+@media (max-width: 820px) {
+  .products-new__container {
+    grid-template-columns: none;
+  }
+  .products-new__container .link-arrow {
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 820px) and (max-width: 1590px) {
+  .products-new__container .link-arrow {
+    margin-bottom: calc(60px + -60 * ((100vw - 320px) / 1270));
+  }
+}
+@media (max-width: 820px) {
+  .products-new__container .products-new__title {
+    text-align: center;
+  }
 }
 .products-new__body {
   padding-right: 70px;
@@ -1739,17 +1757,27 @@ body.lock {
 .products-new__title {
   font-weight: 700;
   color: #fff;
-  font-size: 1.875rem;
+  font-size: 30px;
   line-height: 1.5333333333;
+}
+@media (max-width: 1590px) {
+  .products-new__title {
+    font-size: calc(24px + 6 * ((100vw - 320px) / 1270));
+  }
 }
 .products-new__title:not(:last-child) {
   margin-bottom: 1em;
 }
 .products-new__text {
-  font-size: 1.125rem;
   line-height: 1.5;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+}
+@media (max-width: 1590px) {
+  .products-new__text {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 1270));
+  }
 }
 .products-new__text:not(:last-child) {
   margin-bottom: 60px;
@@ -1761,13 +1789,15 @@ body.lock {
 }
 .products-new__slider {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   min-width: 0;
   padding-top: 2.3125rem;
 }
 .products-new__dotts {
+  left: 0 !important;
   position: relative;
   z-index: 2;
+  padding-top: 2.5rem;
+  transform: translateX(-300%) !important;
 }
 
 .dotts {
@@ -1776,7 +1806,6 @@ body.lock {
   justify-content: center;
   margin: 0 auto;
   overflow: hidden;
-  padding-top: 3.75rem;
   width: auto !important;
 }
 .dotts .swiper-pagination-bullet {
@@ -1828,7 +1857,13 @@ body.lock {
   flex-direction: row-reverse;
   align-items: center;
   color: #E8AA31;
-  font-size: 1.25rem;
+  white-space: nowrap;
+  font-size: 20px;
+}
+@media (max-width: 1590px) {
+  .link-arrow {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 1270));
+  }
 }
 .link-arrow::before {
   margin-left: 0.75em;

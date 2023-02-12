@@ -262,11 +262,20 @@
 .products-new {
   background: url("../img/new-products/bg.jpg") bottom / cover no-repeat;
   @include adaptiveValue('padding-top', 55, 20);
-  @include adaptiveValue('padding-bottom', 55, 20);
+  @include adaptiveValue('padding-bottom', 25, 20);
 
   &__container {
     display: grid;
     grid-template-columns: percent(400, 1600) 1fr;
+    @media(max-width: 820px) {
+      grid-template-columns: none;
+      .link-arrow {
+        @include adaptiveValue('margin-bottom', 0, 60);
+      }
+      .products-new__title {
+        text-align: center;
+      }
+    }
   }
 
   &__body {
@@ -276,7 +285,7 @@
   &__title {
     font-weight: 700;
     color: #fff;
-    font-size: rem(30);
+    @include adaptiveValue('font-size', 30, 24);
     line-height: math.div(46, 30);
     &:not(:last-child) {
       margin-bottom: em(30, 30);
@@ -284,10 +293,10 @@
   }
 
   &__text {
-    font-size: rem(18);
     line-height: math.div(27, 18);
     letter-spacing: 0.03em;
     color: rgba(#fff, 0.7);
+    @include adaptiveValue('font-size', 18, 16);
     &:not(:last-child) {
       @include adaptiveValue('margin-bottom', 60, 20);
     }
@@ -297,7 +306,6 @@
 
   &__slider {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     min-width: 0;
     padding-top: rem(37);
   }
@@ -308,8 +316,11 @@
   }
 
   &__dotts {
+    left: 0 !important;
     position: relative;
     z-index: 2;
+    padding-top: rem(40);
+    transform: translateX(-300%) !important;
   }
 
 }
@@ -321,7 +332,6 @@
     justify-content: center;
     margin: 0 auto;
     overflow: hidden;
-    padding-top: rem(60);
     width: auto !important;
   
     .swiper-pagination-bullet {
@@ -380,7 +390,8 @@
   flex-direction: row-reverse;
   align-items: center;
   color: $mainGold;
-  font-size: rem(20);
+  white-space: nowrap;
+  @include adaptiveValue('font-size', 20, 18);
   &::before {
     margin-left: em(15, 20);
     transform: rotate(-90deg);
