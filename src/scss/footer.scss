@@ -1,0 +1,111 @@
+//==============================================================================================================================================
+.footer {
+  background-color: $mainDarkColor;
+  &__text {
+    
+  }
+
+  &__container {}
+
+  &__body {}
+}
+
+.text-footer {
+  @include adaptiveValue('padding-top', 60, 40);
+  @include adaptiveValue('padding-bottom', 60, 40);
+  background: url('../img/footer/bg.png') top / cover no-repeat;
+  &__container {}
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    @include adaptiveValue('font-size', 30, 20);
+    color: $mainGold;
+    line-height: math.div(46, 30);
+    &:not(:last-child) {
+      margin-bottom: em(30, 30);
+    }
+  }
+
+  &__text {
+    color: #fff;
+    @include adaptiveValue('font-size', 18, 16);
+    line-height: math.div(27, 18);
+  }
+}
+
+.body-footer {
+  @include adaptiveValue('padding-top', 100, 40);
+  @include adaptiveValue('padding-bottom', 50, 40);
+  display: grid;
+  @include adaptiveValue('gap', 35, 15);
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
+    @include adaptiveValue('row-gap', 40, 20);
+    &:not(:last-child) {
+      padding-bottom: rem(30);
+      border-bottom: 1px solid rgba(255, 255, 255, .5);
+    }
+  }
+
+  &__item {}
+}
+
+.item-footer {
+
+  &__spoller {}
+}
+
+.spoller-item-footer {
+
+  &__item {}
+
+  &__title {
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    line-height: math.div(22, 18);
+    ._init & {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(10);
+      width: 100%;
+      &::after {
+        font-family: 'icomoon';
+        content: "\e900";
+        font-size: rem(8);
+        transition: transform .3s ease 0s;
+      }
+      &._active {
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  &__body {
+    @include adaptiveValue('padding-top', 30, 15);
+    @include adaptiveValue('padding-bottom', 30, 15);
+  }
+}
+
+.menu-footer {
+
+  &__list {}
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: em(20, 18);
+    }
+  }
+
+  &__link {
+    line-height: math.div(27, 18);
+    color: rgba(255, 255, 255, .8);
+  }
+}
+//==============================================================================================================================================
