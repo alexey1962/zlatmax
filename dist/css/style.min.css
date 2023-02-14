@@ -250,6 +250,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
 /**
  * 1. Remove the bottom border in Chrome 57-
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -2148,6 +2152,18 @@ body.lock {
   padding-bottom: 1.875rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+.body-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.9285714286;
+}
+.body-footer__rules {
+  max-width: 50rem;
+}
 .spoller-item-footer__title {
   cursor: pointer;
   text-transform: uppercase;
@@ -2185,11 +2201,89 @@ body.lock {
     padding-bottom: calc(15px + 15 * ((100vw - 320px) / 1270));
   }
 }
+.spoller-item-footer__text {
+  line-height: 1.5;
+  max-width: 17.5rem;
+  color: #fff;
+}
+.spoller-item-footer__text a {
+  color: #E8AA31;
+}
+@media (any-hover: hover) {
+  .spoller-item-footer__text a:hover {
+    text-decoration: underline;
+  }
+}
 
+.menu-footer:not(:last-child) {
+  margin-bottom: 32px;
+}
+@media (max-width: 1590px) {
+  .menu-footer:not(:last-child) {
+    margin-bottom: calc(20px + 12 * ((100vw - 320px) / 1270));
+  }
+}
+.menu-footer__item {
+  line-height: 1.5;
+  display: flex;
+  color: rgba(255, 255, 255, 0.8);
+}
 .menu-footer__item:not(:last-child) {
   margin-bottom: 1.1111111111em;
 }
+.menu-footer__item::before {
+  font-size: 1.125rem;
+  margin: 0.3333333333em 0.6666666667em 0 0;
+}
 .menu-footer__link {
+  display: inline-flex;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
+}
+.menu-footer__link::before {
+  font-size: 1.125rem;
+  margin: 0.3333333333em 0.6666666667em 0 0;
+}
+.menu-footer__link._icon-footer-email::before {
+  font-size: 0.8125rem;
+}
+
+.social-footer {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-subscribe__label {
+  display: block;
+  line-height: 1.2222222222;
+  color: #fff;
+}
+.footer-subscribe__label:not(:last-child) {
+  margin-bottom: 0.5555555556em;
+}
+.footer-subscribe__line {
+  display: flex;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+}
+.footer-subscribe__input {
+  background: rgba(255, 255, 255, 0.05);
+  height: 3rem;
+  padding: 0 1.25rem;
+  color: #fff;
+  width: 100%;
+  border: 1px solid #fff;
+  border-right: none;
+}
+.footer-subscribe__button {
+  cursor: pointer;
+  flex: 0 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8AA31;
+}
+.footer-subscribe__button::before {
+  color: #fff;
+  font-size: 0.5rem;
+  transform: rotate(-90deg);
 }

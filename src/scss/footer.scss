@@ -39,6 +39,7 @@
   @include adaptiveValue('padding-bottom', 50, 40);
   display: grid;
   @include adaptiveValue('gap', 35, 15);
+
   &__row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
@@ -50,6 +51,22 @@
   }
 
   &__item {}
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(20);
+    color: rgba(255, 255, 255, .8);
+    font-size: rem(14);
+    line-height: math.div(27, 14);
+  }
+
+  &__rules {
+    max-width: rem(800);
+  }
+
+  &__copy {}
 }
 
 .item-footer {
@@ -91,21 +108,108 @@
     @include adaptiveValue('padding-top', 30, 15);
     @include adaptiveValue('padding-bottom', 30, 15);
   }
+  &__text {
+    line-height: math.div(27, 18);
+    max-width: rem(280);
+    color: #fff;
+    a {
+      color: $mainGold;
+      @media(any-hover: hover){
+          &:hover {
+            text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 .menu-footer {
-
+  &:not(:last-child) {
+    @include adaptiveValue('margin-bottom', 32, 20);
+  }
   &__list {}
 
   &__item {
+    line-height: 1.5;
+    display: flex;
+    color: rgba(255, 255, 255, .8);
     &:not(:last-child) {
       margin-bottom: em(20, 18);
+    }
+    &::before {
+      font-size: rem(18);
+      margin: em(5, 15) em(10, 15) 0 0;
     }
   }
 
   &__link {
+    display: inline-flex;
     line-height: math.div(27, 18);
     color: rgba(255, 255, 255, .8);
+    &::before {
+        font-size: rem(18);
+        margin: em(5, 15) em(10, 15) 0 0;
+    }
+    &._icon-footer-email {
+      &::before {
+        font-size: rem(13);
+      }
+    }
   }
 }
+
+.social-footer {
+  display: flex;
+  gap: rem(24);
+  &__item {}
+
+  &__link {}
+}
 //==============================================================================================================================================
+.spoller-item-footer {
+
+  &__body {}
+}
+
+.footer-subscribe {
+
+  &__label {
+    display: block;
+    line-height: math.div(22, 18);
+    color: #fff;
+    &:not(:last-child) {
+      margin-bottom: em(10, 18);
+    }
+  }
+
+  &__line {
+    display: flex;
+    border-radius: rem(3);
+    overflow: hidden;
+  }
+
+  &__input {
+    background: rgba(255, 255, 255, .05);
+    height: rem(48);
+    padding: 0 rem(20);
+    color: #fff;
+    width: 100%;
+    border: 1px solid #fff;
+    border-right: none;
+  }
+
+  &__button {
+    cursor: pointer;
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $mainGold;
+    &::before {
+      color: #fff;
+      font-size: rem(8);
+      transform: rotate(-90deg);
+
+    }
+  }
+}
