@@ -53,16 +53,51 @@
                 text-decoration: underline;
             }
         }
+        @media(min-width: $tablet) {
+          &_catalog {
+              display: none;
+            }
+        }
+        @media(max-width: $tablet) {
+          &_catalog {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          &::before {
+            transform: rotate(-90deg);
+          }
+        }
+        
+        }
     }
 }
 
 .menu {
+    &__body {
     @media(max-width: $tablet) {
-        display: flex;
-        flex: 0 0 30px;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: auto;
+      background-color: $mainDarkColor;
+      padding: rem(50) rem(15);
+      z-index: 4;
     }
-}
+  }
+    @media(max-width: $tablet) {
+      display: flex;
+      flex: 0 0 auto;
+   }
+ }
 
+ @media(max-width: $tablet) {
+   .menu-top-header,
+   .top-header__user {
+     visibility: hidden;
+   }
+ }
 
 //====================================================================================================================================================
 .body-header {
@@ -266,6 +301,16 @@
 }
 //====================================================================================================================================================
 .catalog-header {
+    @media(max-width: $tablet) {
+        .menu {
+            display: flex;
+            visibility: visible;
+        }
+        & {
+            display: none;
+            visibility: hidden;
+        }
+    }
     background-color: $mainDarkColor;
     color: #fff;
     position: relative;
