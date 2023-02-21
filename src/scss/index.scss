@@ -184,10 +184,7 @@
   justify-content: center;
   align-items: center;
   padding: rem(15);
-
-  &__body {
-    position: relative;
-  }
+  position: relative;
 
   &__image {
     &::before {
@@ -334,7 +331,7 @@
   &__container {
     display: grid;
     gap: rem(30);
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
     @media(max-width: $mobileSmall) {
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     }

@@ -5,5 +5,6 @@ flsFunctions.spollers()
 flsFunctions.initPopups()
 flsFunctions.swiper()
 flsFunctions.rating()
+flsFunctions.burgerMenu()
 
 import './script.js'

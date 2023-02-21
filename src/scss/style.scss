@@ -153,31 +153,31 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 
-._icon-arrow-bottom:before {
+._icon-back:before {
     content: "\e900";
 }
 
-._icon-cart:before {
+._icon-user:before {
     content: "\e901";
 }
 
-._icon-compare:before {
+._icon-rub:before {
     content: "\e902";
 }
 
-._icon-favorite:before {
+._icon-spoiler-arrow:before {
     content: "\e903";
 }
 
-._icon-footer-clock:before {
+._icon-footer-email:before {
     content: "\e904";
 }
 
-._icon-footer-email:before {
+._icon-footer-location:before {
     content: "\e905";
 }
 
-._icon-footer-location:before {
+._icon-footer-clock:before {
     content: "\e906";
 }
 
@@ -185,33 +185,36 @@ ul {
     content: "\e907";
 }
 
-._icon-location:before {
+._icon-compare:before {
     content: "\e908";
 }
 
-._icon-logo:before {
+._icon-star:before {
     content: "\e909";
 }
 
-
-._icon-rub:before {
+._icon-cart:before {
     content: "\e90a";
 }
 
-._icon-search:before {
+._icon-favorite:before {
     content: "\e90b";
 }
 
-._icon-spoiler-arrow:before {
+._icon-arrow-bottom:before {
     content: "\e90c";
 }
 
-._icon-star:before {
+._icon-location:before {
     content: "\e90d";
 }
 
-._icon-user:before {
+._icon-search:before {
     content: "\e90e";
+}
+
+._icon-logo:before {
+    content: "\e90f";
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

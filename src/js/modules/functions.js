@@ -588,3 +588,19 @@ export function rating() {
     }
   }
 }
+
+export function burgerMenu() {
+  const iconMenu = document.querySelector('.icon-menu')
+  if (iconMenu) {
+    const menuBody = document.querySelector('.menu__body')
+    iconMenu.addEventListener('click', (e) => {
+      document.documentElement.classList.toggle('lock')
+      document.documentElement.classList.toggle('menu-open')
+      iconMenu.classList.toggle('menu-open')
+      menuBody.classList.toggle('menu-open')
+      if(document.documentElement.classList.contains('catalog-open')) {
+        document.documentElement.classList.remove('catalog-open')
+      }
+    })
+  }
+}

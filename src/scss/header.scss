@@ -25,14 +25,16 @@
   }
 
   &__user {
+    position: relative;
+    z-index: 5;
     display: inline-flex;
     align-items: center;
     font-weight: 600;
     line-height: math.div(22, 18);
+    gap: em(15, 18);
 
     &::before {
       font-size: rem(28);
-      margin-right: em(15, 28);
     }
 
     @media (any-hover: hover) {
@@ -42,17 +44,61 @@
         }
       }
     }
+    @media(max-width: $tablet) {
+      &::before {
+        font-size: rem(35);
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .phones-header-adaptive {
+    &__callback {
+      @media(max-width: $tablet) {
+        display: none;
+      }
+    }
+    &__list {
+      @media(max-width: $tablet) {
+        display: none;
+      }
+    }
+    &__arrow {
+      @media(max-width: $tablet) {
+        display: none;
+      }
+    }
+    &__phone {
+      @media(max-width: $tablet) {
+        &::before {
+          font-family: 'icomoon';
+          content: "\e907";
+          font-size: rem(30);
+        }  
+      }
+    }
   }
 }
 //=====Перенос блоков========================================================================================================================================
 @media(min-width: $tablet) {
-  .phones-header-adaptive {
-      display: none;
+  .phones-header-adaptive,
+  .actions-header__favorite-adaptive,
+  .actions-header__cart-adaptive {
+      display: none !important;
     }
 }
+.actions-header__favorite-adaptive,
+.actions-header__cart-adaptive,
+.phones-header-adaptive {
+  font-size: 30px;
+  position: relative;
+  z-index: 5;
+}
 @media(max-width: $tablet) {
-  .phones-header {
-    display: none;
+  .actions-header {
+    display: none !important;
   }
 }
 //==============================================================================================================================================
@@ -65,7 +111,7 @@
 
     @media(max-width: $tablet) {
       flex-direction: column;
-      row-gap: 15px;
+      row-gap: 25px;
     }
   }
 
@@ -102,7 +148,9 @@
           transform: rotate(-90deg);
         }
       }
-
+      @media(max-width: $tablet) {
+        @include adaptiveValue('font-size', 30, 20, 1, 992);
+      }
     }
   }
   @media(max-width: $tablet) {
@@ -121,8 +169,24 @@
       left: -100%; //Временно - изначально 0
       overflow: auto;
       background-color: $mainDarkColor;
-      padding: rem(80) rem(15) rem(50) rem(15);
+      padding: rem(100) rem(15) rem(50) rem(15);
       z-index: 4;
+      transition: left .3s ease 0s;
+      &::before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 70px;
+        left: -100%;
+        top: 0;
+        background-color: $mainDarkColor;
+      }
+      .menu-open & {
+        left: 0;
+        &::before {
+          left: 0;
+        }
+      }
     }
   }
 
@@ -156,6 +220,9 @@
   &__logo {
     font-size: rem(42);
     color: $mainDarkColor;
+    @media(max-width: $mobileSmall) {
+      font-size: rem(24);
+    }
   }
 
   &__search {
@@ -166,13 +233,17 @@
         padding-right: rem(10);
       }
     }
+    @media(max-width: $tablet) {
+      padding-right: 0;
+      margin-left: 60px;
+    }
   }
 
   &__actions {}
 }
 
 .search-header {
-  max-width: rem(377);
+  max-width: 100%;
   background-color: rgba(7, 7, 7, .03);
   border-radius: rem(3);
   position: relative;
@@ -196,6 +267,9 @@
     height: rem(41);
     color: $mainColor;
     padding: 0 rem(20) 0 rem(50);
+
+    max-width: 100%;
+    box-sizing: border-box;
 
     &::placeholder {
       color: rgba(0, 0, 0, .5);
@@ -372,10 +446,10 @@
       visibility: visible;
     }
 
-    & {
-      display: none;
-      visibility: hidden;
-    }
+    // & {
+    //   display: none;
+    //   visibility: hidden;
+    // }
   }
 
   background-color: $mainDarkColor;
@@ -391,24 +465,29 @@
 
   &__list {
     display: flex;
-    gap: 10px;
+    column-gap: 10px;
     justify-content: space-between;
+    @media(max-width: $tablet) {
+      flex-direction: column;
+      row-gap: rem(25);
+    }
   }
 
   &__item {}
 
   &__link {
-    min-height: rem(70);
     display: flex;
-    padding: 0 rem(10);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     position: relative;
     transition: color .3s ease 0s;
     color: #fff;
     cursor: pointer;
-
+    @media(min-width: $tablet) {
+      min-height: rem(70);
+      padding: 0 rem(10);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -444,11 +523,45 @@
     }
   }
 
+  @media(max-width: $tablet) {
+      @include adaptiveValue('font-size', 30, 20, 1, 992);
+    }
+
   &__sub-menu {
     width: 100%;
     left: 0;
     top: 100%;
     background-color: $mainDarkColor;
+  }
+  &__back {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    @media(max-width: $tablet) {
+      display: inline-flex;
+      align-items: center;
+      &:not(:last-child) {
+        margin-bottom: em(65, 30);
+      }
+      &::before {
+        margin: 0 em(13, 30) 0 0;
+      }
+    }
+  }
+  @media(max-width: $tablet) {
+    position: fixed;
+    top: 0;
+    left: -200%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $mainDarkColor;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left .3s ease 0s;
+    .catalog-open &{
+      left: 0;
+      z-index: 6;
+    }
   }
 }
 
@@ -506,6 +619,17 @@
     }
   }
 
+  &__back {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+
+    @media(max-width: $tablet) {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
   &__footer {
     padding: rem(30) rem(15) rem(30) 0;
   }
@@ -533,7 +657,7 @@
     width: 30px;
     height: 18px;
     cursor: pointer;
-    z-index: 5;
+    z-index: 10;
 
     span,
     &::before,
@@ -559,7 +683,7 @@
       top: calc(50% - 1px);
     }
 
-    .menu-open & {
+    &.menu-open {
       span {
         transform: scale(0);
       }
