@@ -40,7 +40,7 @@
     @media (any-hover: hover) {
       &:hover {
         span {
-          text-decoration: underline;
+          text-decoration: none;
         }
       }
     }
@@ -121,7 +121,7 @@
 
     @media (any-hover: hover) {
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
 
@@ -462,7 +462,7 @@
 }
 
 .menu-catalog {
-
+  box-sizing: border-box;
   &__list {
     display: flex;
     column-gap: 10px;
@@ -481,6 +481,26 @@
     transition: color .3s ease 0s;
     color: #fff;
     cursor: pointer;
+
+    &[data-parent] {
+      &::before {
+        font-family: 'icomoon';
+        content: "\e90c";
+        display: none;
+        @media(max-width: $tablet) {
+          display: block;
+          font-size: 10px;
+          transform: rotate(-90deg);
+        }
+      }
+      @media(max-width: $tablet) {
+        display: flex;
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+
     @media(min-width: $tablet) {
       min-height: rem(70);
       padding: 0 rem(10);
@@ -506,8 +526,8 @@
         color: $mainGold;
 
         &::after {
-          opacity: 1;
-          visibility: visible;
+          opacity: 0;
+          visibility: hidden;
 
         }
       }
@@ -566,6 +586,44 @@
 }
 
 .sub-menu-catalog {
+
+  @media(max-width: $tablet) {
+    position: fixed;
+    top: 0;
+    left: -200%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $mainDarkColor;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left .3s ease 0s;
+
+    ._sub-menu-open &{
+      display: block;
+      left: 0;
+      z-index: 6;
+    }
+  }
+
+  &__back {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+
+    @media(max-width: $tablet) {
+      display: inline-flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: em(65, 30);
+      }
+
+      &::before {
+        margin: 0 em(13, 30) 0 0;
+      }
+    }
+  }
+  
   &__block {
     display: none;
 
@@ -577,6 +635,9 @@
 
     &._sub-menu-open {
       display: grid;
+      @media(max-width: $tablet) {
+        display: block;
+      }
     }
   }
 
@@ -587,8 +648,17 @@
   &__category {
     font-size: rem(16);
     line-height: math.div(20, 16);
-    font-weight: 700;
-    padding: rem(30) rem(15) rem(30) 0;
+
+    @media(min-width: $tablet) {
+      padding: rem(30) rem(15) rem(30) 0;
+      font-weight: 700;
+    }
+
+    @media(max-width: $tablet) {
+      &:not(:last-child) {
+        margin-bottom: em(25, 16);
+      }
+    }
 
     @media (any-hover: hover) {
       &:hover {
@@ -604,6 +674,9 @@
     padding: rem(30) rem(15) rem(30) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    @media(max-width: $tablet) {
+      display: none;
+    }
   }
 
   &__item {}
@@ -617,21 +690,21 @@
         text-decoration: underline;
       }
     }
+
   }
 
-  &__back {
-    display: none;
-    color: #fff;
-    cursor: pointer;
-
+  &__link-category {
     @media(max-width: $tablet) {
-      display: inline-flex;
-      align-items: center;
+      @include adaptiveValue('font-size', 30, 18, 1, 992);
     }
+    
   }
 
   &__footer {
     padding: rem(30) rem(15) rem(30) 0;
+    @media(max-width: $tablet) {
+      display: none;
+    }
   }
 
   &__all {
