@@ -48,6 +48,13 @@ function documentActions(e) {
         document.documentElement.classList.add('catalog-open')
         e.preventDefault()
     }
+    if (targetElement.closest('.menu-catalog__back')) {
+        document.documentElement.classList.remove('catalog-open')
+        
+        document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null
+        document.querySelector('._sub-menu-open') ? document.querySelector('._sub-menu-open').classList.remove('_sub-menu-open') : null
+        e.preventDefault()
+    }
   if (targetElement.closest('.sub-menu-catalog__back') || targetElement.closest('.menu__icon') || targetElement.closest('.menu-catalog__back')) {
       document.documentElement.classList.remove('_catalog-open')
       document.querySelector('._sub-menu-active') ? document.querySelector('._sub-menu-active').classList.remove('_sub-menu-active') : null
