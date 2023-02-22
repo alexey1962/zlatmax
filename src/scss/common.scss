@@ -400,3 +400,42 @@
     }
   }
 }
+
+//==============================================================================================================================================
+.breadcrumbs {
+  white-space: nowrap;
+  overflow: auto;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {}
+
+  &__link {
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    &::after {
+      font-family: 'icomoon';
+      content: "\e903";
+      transform: rotate(90deg);
+      font-size: rem(6);
+      margin: 0 em(10, 6);
+    }
+  }
+
+  &__current {
+    color: $mainGold;
+  }
+}
+
+//==============================================================================================================================================
+.title {
+  font-weight: 700;
+  font-size: rem(24);
+  line-height: math.div(29, 24);
+  &:not(:last-child) {
+    margin-bottom: em(25, 24);
+  }
+}
