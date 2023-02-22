@@ -17,16 +17,22 @@ function documentActions(e) {
         if(subMenu) {
             const activeLink = document.querySelector('._sub-menu-active')
             const activeBlock = document.querySelector('._sub-menu-open')
-            const backBtn = document.querySelector('.menu-catalog__back')
+            const backBtns = document.querySelectorAll('.sub-menu-catalog__back')
 
             if(activeLink && activeLink !== targetElement) {
               activeLink.classList.remove('_sub-menu-active')
-            document.querySelectorAll('._sub-menu-open').forEach(el => {
+              document.querySelectorAll('._sub-menu-open').forEach(el => {
                 el.classList.remove('_sub-menu-open')
-            })
+              })
+              activeBlock.classList.remove('_sub-menu-open')
               document.documentElement.classList.remove('_sub-menu-open')
             }
             document.documentElement.classList.toggle('_sub-menu-open')
+            for(let backBtn of backBtns) {
+              backBtn.addEventListener('click', () => {
+                subMenu.classList.remove('_sub-menu-open')
+              })
+            }
             targetElement.classList.toggle('_sub-menu-active')
             subMenu.classList.toggle('_sub-menu-open')
 
