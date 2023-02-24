@@ -405,6 +405,7 @@
 .breadcrumbs {
   white-space: nowrap;
   overflow: auto;
+  height: rem(22);
 
   &__list {
     display: flex;
@@ -437,5 +438,67 @@
   line-height: math.div(29, 24);
   &:not(:last-child) {
     margin-bottom: em(25, 24);
+  }
+}
+
+//==============================================================================================================================================
+
+.control {
+  padding: 0 10px;
+  min-width: rem(375);
+  cursor: pointer;
+  height: rem(40);
+  outline: none;
+  background: transparent;
+  border: 1px solid rgba(4, 4, 4, 0.3);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+//==============================================================================================================================================
+
+.pagging {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: rem(30);
+
+  &__arrow {
+    color: $mainGold;
+    &::before {
+      font-size: rem(6);
+    }
+    &:disabled {
+      color: rgba(0,0,0,.12);
+    }
+
+    &_left {
+      transform: rotate(90deg);
+    }
+
+    &_right {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(13);
+  }
+
+  &__item {}
+
+  &__link {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &._active {
+      background-color: $mainGold;
+      color: #fff;
+    }
   }
 }

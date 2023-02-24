@@ -1,7 +1,77 @@
 .catalog {
+  @include adaptiveValue('padding-bottom', 120, 40);
 
   &__container {}
 
+  &__body {
+    display: grid;
+    grid-template-columns: 375px 1fr;
+    gap: rem(30);
+  }
+
+  &__filter {}
+
+  &__content {}
+
+  &__control {
+    display: flex;
+    justify-content: flex-end;
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 375px));
+    row-gap: rem(50);
+    column-gap: rem(20);
+    justify-content: flex-end;
+    @include adaptiveValue('margin-bottom', 60, 30);
+  }
+
+  &__footer {
+  }
+
+  &__pagging {}
+}
+//==============================================================================================================================================
+.filter-catalog {
+
   &__title {}
+
+  &__items {}
+
+  &__price {}
 }
 
+.price-filter {
+
+  &__title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    width: 100%;
+    &::before {
+      transition: transform .3s ease 0s;
+      color: $mainGold;
+      font-size: rem(8);
+      transform: rotate(180deg);
+    }
+    &._active {
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__body {}
+
+  &__inputs {}
+
+  &__input {}
+
+  &__range {}
+}
