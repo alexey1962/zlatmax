@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@import "fonts";
-@import "mixins";
+@import "modules/fonts";
+@import "modules/mixins";
 
 $fontFamily: "Montserrat";
 $fontSize: rem(18);
@@ -127,19 +127,20 @@ ul {
 
 
 @import "../fonticons.css";
-@import "icons";
+@import "modules/icons";
 
-@import "popup";
-@import "rating";
+@import "modules/popup";
+@import "modules/rating";
 
 @import "index";
 @import "header";
-@import "common";
+@import "modules/common";
 @import "footer";
 
 @import "catalog";
-@import "nouislider";
-@import "normalize";
+@import "product";
+@import "modules/nouislider";
+@import "modules/normalize";
 .page {
     &_home {}
 

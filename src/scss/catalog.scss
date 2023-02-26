@@ -5,8 +5,11 @@
 
   &__body {
     display: grid;
-    grid-template-columns: 375px 1fr;
     gap: rem(30);
+    align-items: start;
+    @media(min-width: $tablet) {
+      grid-template-columns: 375px 1fr;
+    }
   }
 
   &__filter {}
@@ -23,10 +26,9 @@
 
   &__products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 375px));
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     row-gap: rem(50);
     column-gap: rem(20);
-    justify-content: flex-end;
     @include adaptiveValue('margin-bottom', 60, 30);
   }
 
@@ -37,8 +39,16 @@
 }
 //==============================================================================================================================================
 .filter-catalog {
-
-  &__title {}
+  background: #FEFEFE;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  &__title {
+    background-color: $mainDarkColor;
+    font-weight: 700;
+    font-size: rem(20);
+    line-height: math.div(24,20);
+    padding: rem(20) rem(30);
+    color: #fff;
+  }
 
   &__items {}
 
@@ -46,8 +56,9 @@
 }
 
 .price-filter {
-
+  padding: rem(30);
   &__title {
+    padding: 0;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -67,11 +78,67 @@
     }
   }
 
-  &__body {}
+  &__body {
+    padding-top: rem(30);
+  }
 
-  &__inputs {}
+  &__inputs {
+    display: flex;
+    border: 1px solid #cbcbcb;
+    border-radius: rem(3);
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
 
-  &__input {}
+  &__input {
+    height: rem(42);
+    width: 50%;
+    text-align: center;
+    padding: 0 rem(15);
+    &:not(:last-child) {
+      border-right: 1px solid #cbcbcb;
+    }
+  }
 
   &__range {}
+}
+
+//==============================================================================================================================================
+.item-filter-catalog {
+
+  &__title {
+    cursor: pointer;
+    background-color: $mainDarkColor;
+    width: 100%;
+    color: #fff;
+    padding: rem(13) rem(30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    &::before {
+      transition: transform .3s ease 0s;
+      color: $mainGold;
+      font-size: rem(8);
+      transform: rotate(180deg);
+    }
+  
+    &._active {
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(30);
+  }
+
+  &__checkbox {
+    &:not(:last-child) {
+      margin-bottom: rem(22);
+    }
+  }
 }
