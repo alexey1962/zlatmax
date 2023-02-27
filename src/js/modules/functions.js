@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from "swiper";
 import * as noUiSlider from 'nouislider'
 
 export function isWebp() {
@@ -501,7 +501,54 @@ export function swiper() {
         }
       })
     }
+    if (document.querySelector('.thumbs-images')) {
+      const thumbsSwiper = new Swiper('.thumbs-images', {
+        modules: [Navigation, Pagination],
 
+        observer: true,
+        observeParents: true,
+        slidesPerView: 4,
+        watchOverflow: true,
+        spaceBetween: 30,
+        speed: 800,
+
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            autoHeight: true,
+          },
+          992: {
+            slidesPerView: 2,
+          },
+          1300: {
+            slidesPerView: 3,
+          },
+          1600: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          }
+        }
+      })
+      new Swiper('.images-product__slider', {
+        modules: [Navigation, Pagination, Thumbs, Autoplay],
+
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        watchOverflow: true,
+        spaceBetween: 16,
+        speed: 800,
+
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        thumbs: {
+          swiper: thumbsSwiper
+        },
+      })
+    }
 
   }
   function initSlidersScrolls() {
@@ -608,7 +655,7 @@ export function burgerMenu() {
 
 export function rangeInit() {
   const rangeItems = document.querySelectorAll('[data-range]')
-  
+
   if(rangeItems.length) {
     rangeItems.forEach(rangeItem => {
       const fromValue = rangeItem.querySelector('[data-range-from]')
@@ -632,4 +679,25 @@ export function rangeInit() {
       });
     })
   }
+}
+
+export function quantities() {
+  const down = document.querySelector('.down')
+  const up = document.querySelector('.up')
+  let num = document.querySelector('.actions-product__input')
+  let price = document.querySelector('.actions-product__num')
+  let initVal = parseInt(price.textContent)
+
+  down.addEventListener('click', () => {
+    if(num.value != 1) {
+      num.value--
+      let newVal = initVal - initVal
+      price.textContent = newVal
+    }
+  })
+  up.addEventListener('click', () => {
+    num.value++
+    let newVal = initVal + initVal
+    price.textContent = newVal
+  })
 }

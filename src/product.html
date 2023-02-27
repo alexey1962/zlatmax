@@ -9,7 +9,131 @@
     <div class="wrapper">
       @@include('./files/html/_header.html')
       <main class="page page_inner">
-        
+        <div class="page__header">
+          <div class="page__container container">
+            <nav class="page__breadcrumbs breadcrumbs">
+              <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link">Категория ножей</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__current">Нож</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product__container container">
+            <div class="product__main main-product">
+              <div class="main-product__images images-product">
+                <div class="images-product__slider">
+                  <div class="images-product__swiper">
+                    <div class="images-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="images-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="images-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="images-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="images-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                  </div>
+                </div>
+                <div class="images-product__thumbs thumbs-images">
+                  <div class="thumbs-product__swiper">
+                    <div class="thumbs-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="thumbs-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="thumbs-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="thumbs-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                    <div class="thumbs-product__slide-ibg">
+                      <img src="@img/product/01.png" alt="Картинка">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main-product__body body-product">
+                <div class="body-product__header header-product">
+                  <div class="header-product__line">
+                    <h1 class="header-product__title">Ножик</h1>
+                    <a href="#" class="header-product__link _icon-compare"></a>
+                    <a href="#" class="header-product__link _icon-favorite"></a>
+                  </div>
+                  <div class="header-product__instock stock"></div>
+                  <div class="header-product__rating rating">
+                    <div class="rating__body">
+                      <div class="rating__active"></div>
+                      <div class="rating__items">
+                        <input type="radio" class="rating__item" name="rating" value="1">
+                        <input type="radio" class="rating__item" name="rating" value="2">
+                        <input type="radio" class="rating__item" name="rating" value="3">
+                        <input type="radio" class="rating__item" name="rating" value="4">
+                        <input type="radio" class="rating__item" name="rating" value="5">
+                      </div>
+                    </div>
+                    <div hidden class="rating__value">3.6</div>
+                  </div>
+                </div>
+                <div class="body-product__table table-product">
+                  <div class="table-product__label">Артикул:</div>
+                  <div class="table-product__value">AF0000001952</div>
+                  <div class="table-product__label">Торговая марка:</div>
+                  <div class="table-product__value">WUESTHOF (Германия)</div>
+                  <div class="table-product__label">Серия:</div>
+                  <div class="table-product__value">Ножи серии Classic Ikon</div>
+                  <div class="table-product__label">Бонусные баллы:</div>
+                  <div class="table-product__value">38</div>
+                </div>
+                <div class="body-product__options options-product">
+                  <div class="options-product__label">Сталь</div>
+                  <div class="options-product__value">
+                    <select>
+                      <option value="" disabled selected hidden>Выбрать сталь</option>
+                      <option value="100Х13М">100Х13М</option>
+                      <option value="110Х18М-ШД">110Х18М-ШД</option>
+                      <option value="40Х10С2М (ЭИ-107)">40Х10С2М (ЭИ-107)</option>
+                      <option value="50Х14МФ">50Х14МФ</option>
+                      <option value="95Х18">95Х18</option>
+                      <option value="AUS-8">AUS-8</option>
+                      <option value="ELMAX">ELMAX</option>
+                      <option value="RWL-34">RWL-34</option>
+                    </select>
+                    <div class="options-product__wave _icon-spoiler-arrow"></div>
+                  </div>
+                </div>
+                <div class="body-product__actions actions-product">
+                  <div class="actions-product__price"><span class="actions-product__num">4150</span>₸</div>
+                  <div class="actions-product__buttons">
+                    <div class='counter'>
+                      <div class='down'>-</div>
+                      <input type='number' value='1' class="actions-product__input">
+                      <div class='up'>+</div>
+                    </div>
+                    <a href="#" class="actions-product__cart button"><span>В корзину</span></a>
+                    <a href="#" class="actions-product__cart button button_black">Купить в 1 клик</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       @@include('./files/html/_footer.html')
     </div>

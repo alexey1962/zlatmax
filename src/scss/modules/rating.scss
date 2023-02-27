@@ -1,17 +1,10 @@
-.product-card {
-
-  &__rating {
-    display: flex;
-    align-items: center;
-    font-size: rem(30);
-    justify-content: space-between;
-    transition: all .3s ease 0s;
-    flex-wrap: wrap;
-  }
-}
-
 .rating {
-
+  display: flex;
+  align-items: center;
+  font-size: rem(30);
+  justify-content: space-between;
+  transition: all .3s ease 0s;
+  flex-wrap: wrap;
   &_set {}
 
   &__body {
