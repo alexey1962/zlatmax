@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('./files/html/_head.html', {
+"title": "Контакты"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./files/html/_header.html')
+    <main class="main">
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d557.
+          3087473186476!2d-122.41130783149083!3d37.79907657901794!2m3!1f0!2f0!3f0!3
+          m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580f18d8c6ea7%3A0x5d7f53fb70a3a903!
+          2zNzI1IEdyZWVuIFN0LCBTYW4gRnJhbmNpc2NvLCBDQSA5NDEzMywg0KHQqNCQ!5e0!3m2!1s
+          ru!2skz!4v1684773507649!5m2!1sru!2skz" width="100%" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <section class="contact">
+        <div class="container-small">
+          <h3 class="contact__title">Contact Us</h3>
+
+          <ul class="contact__social">
+            <li class="contact__social-item">
+              <a href="#" class="contact__social-link _icon-facebook"></a>
+            </li>
+            <li class="contact__social-item">
+              <a href="#" class="contact__social-link _icon-instagram"></a>
+            </li>
+            <li class="contact__social-item">
+              <a href="#" class="contact__social-link _icon-Pinterest"></a>
+            </li>
+            <li class="contact__social-item">
+              <a href="#" class="contact__social-link _icon-whatsapp"></a>
+            </li>
+            <li class="contact__social-item">
+              <a href="#" class="contact__social-link _icon-youtube1"></a>
+            </li>
+          </ul>
+
+          <div class="contact__adress">
+            <p class="contact__text">
+              Vexillologist vape microdosing freegan pork belly deep v direct trade cray single-origin coffee street
+              art. Viral shaman
+              mustache master cleanse, pour-over affogato poutine copper mug marfa fanny pack normcore. Lo-fi pop-up
+              banjo portland,
+              echo park hammock
+            </p>
+            <a href="tel:+14158297934" class="contact__phone">(415) 829-7934</a>
+            <div class="contact__st">725 Green St</div>
+            <div class="contact__city">San Francisco, California(CA), 94133</div>
+            <a class="info-email" href="mailto:ouremailaddress@email.com">ouremailaddress@email.com</a>
+          </div>
+
+          <form action="#" class="contact__form">
+            <input class="contact__form-input" placeholder="Your name" type="text">
+            <input class="contact__form-input" placeholder="Your e-mail" type="email">
+            <textarea class="contact__form-area" placeholder="Your message"></textarea>
+            <button class="contact__form-btn button" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    @@include('./files/html/_footer.html')
+  </div>
+  <script src="js/app.min.js"></script>
+</body>
+
+</html>

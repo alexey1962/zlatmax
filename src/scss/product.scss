@@ -7,11 +7,16 @@
 
 .main-product {
   display: grid;
-  grid-template-columns: percent(785, 1600) 1fr;
+  
   gap: rem(30);
   @include adaptiveValue('margin-bottom', 120, 40);
   &__images {
-    padding: 0 rem(30) 0 0;
+    @media(min-width: em(1300)) {
+      padding: 0 rem(30) 0 0;
+    }
+  }
+  @media(min-width: em(1300)) {
+    grid-template-columns: percent(785, 1600) 1fr;
   }
 }
 
@@ -24,25 +29,36 @@
   &__slide-ibg {
     width: 754px;
     height: 577px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__thumbs {
     margin-top: rem(16);
   }
 }
-
 .thumbs-images {}
 
 .thumbs-product {
 
-  &__swiper {}
+  &__swiper {
+  }
 
   &__slide-ibg {
     cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s ease 0s;
+  
+    &.swiper-slide-thumb-active {
+      transition: opacity .3s ease 0s;
+      opacity: 1;
+    }
     img {
       object-fit: cover;
-      width: 177px;
-      height: 195px;
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -183,20 +199,49 @@
     display: flex;
     gap: rem(20);
     align-items: center;
+    flex-wrap: wrap;
+    @media(max-width: em(1620)) {
+      display: block;
+      flex-direction: column;
+      & > .counter {
+        justify-content: flex-start;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
 
   .button_black {
     background-color: $mainDarkColor;
+    @media(max-width: $mobileSmall) {
+      font-size: 15.7px;
+    }
   }
 
   &__cart {
     font-size: inherit;
-  }
-
-  &__cart:not(.button_black) {
-    &::after {
-      content: "\e90a";
-      font-family: 'icomoon';
+    @media(max-width: em(1620)) {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    @media(max-width: em(1300)) {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    @media(max-width: $mobileSmall) {
+      padding-right: rem(20);
+      padding-left: rem(20);
+    }
+    span {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      &::before {
+        margin: 0 0 0 rem(10);
+      }
     }
   }
 }

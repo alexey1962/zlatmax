@@ -87,6 +87,16 @@ ul {
     transition: box-shadow 0.3s ease 0s;
 }
 
+.container-small {
+  max-width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.delivery__btn {
+    cursor: pointer;
+}
+
 @if($responsiveType==1) {
     [class*="__container"] {
         @if($maxWidthContainer>0) {
@@ -146,6 +156,8 @@ input::-webkit-inner-spin-button {
 
 @import "catalog";
 @import "product";
+@import "contacts";
+@import "delivery";
 @import "modules/nouislider";
 @import "modules/normalize";
 .page {

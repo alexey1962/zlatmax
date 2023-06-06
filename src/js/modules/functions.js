@@ -513,20 +513,12 @@ export function swiper() {
         speed: 800,
 
         breakpoints: {
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            autoHeight: true,
-          },
-          992: {
-            slidesPerView: 2,
-          },
-          1300: {
+          768: {
             slidesPerView: 3,
           },
           1600: {
             slidesPerView: 4,
-            spaceBetween: 16,
+            spaceBetween: 10,
           }
         }
       })
@@ -681,23 +673,26 @@ export function rangeInit() {
   }
 }
 
-export function quantities() {
-  const down = document.querySelector('.down')
-  const up = document.querySelector('.up')
-  let num = document.querySelector('.actions-product__input')
-  let price = document.querySelector('.actions-product__num')
-  let initVal = parseInt(price.textContent)
+// export function quantities() {
+//   const down = document.querySelector('.down')
+//   const up = document.querySelector('.up')
+//   let num = document.querySelector('.actions-product__input')
+//   let price = document.querySelector('.actions-product__num')
+//   const initVal = parseInt(price.textContent)
+//   let arrVal = []
+//   arrVal.push(initVal)
+//   console.log(arrVal[0])
 
-  down.addEventListener('click', () => {
-    if(num.value != 1) {
-      num.value--
-      let newVal = initVal - initVal
-      price.textContent = newVal
-    }
-  })
-  up.addEventListener('click', () => {
-    num.value++
-    let newVal = initVal + initVal
-    price.textContent = newVal
-  })
-}
+//   down.addEventListener('click', () => {
+//     if(num.value != 1) {
+//       num.value--
+//       let newVal = initVal - arrVal[0] 
+//       price.textContent = newVal
+//     }
+//   })
+//   up.addEventListener('click', () => {
+//     num.value++
+//     let newVal = arrVal[0] + initVal
+//     price.textContent = newVal
+//   })
+// }

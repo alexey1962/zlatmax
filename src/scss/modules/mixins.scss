@@ -26,6 +26,10 @@ $rem-base: 16;
         @media(min-width: #{$widthFrom + px}) {
             #{$func}: calc(#{$minVal + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo}))
         } 
+    } @else if $type == 3 {
+        @media(max-width: #{$widthFrom + px}) {
+            #{$func}: calc(#{$minVal + '%'} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidthContainer - $widthTo}))
+        }
     } @else {
         #{$func}: calc(#{$minVal + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidth - $widthTo}))
     }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('./files/html/_head.html', {
+"title": "Оплата и доставка"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./files/html/_header.html')
+    <main class="main">
+      <section class="delivery">
+        <div class="delivery__top">
+          <div class="delivery__top-box">
+            <h3 class="delivery__title">Оплата и доставка</h3>
+            <p class="delivery__text">Компания Златмакс. Мы - лидеры в сфере доставки и предоставляем надежные и
+              эффективные
+              услуги доставки для наших клиентов.
+              Мы гордимся нашей широкой сетью доставки, которая охватывает множество городов и регионов. Независимо от
+              того, где вы находитесь, мы готовы доставить ваши товары прямо к вашей двери.
+              Нашей главной целью является удовлетворение потребностей наших клиентов. Мы стремимся к превосходству в
+              обслуживании,
+              предоставляя быструю, надежную и качественную доставку. Ваше удовлетворение - наш приоритет.</p>
+          </div>
+        </div>
+        <div class="container">
+          <h4 class="delivery__subtitle">Способы доставки</h4>
+          <div class="delivery__buttons">
+            <button class="delivery__btn" data-filter=".courier">Доставка курьером</button>
+            <button class="delivery__btn" data-filter=".sdek">Доставка СДЭК</button>
+            <button class="delivery__btn" data-filter=".kazpochta">Доставка «Казпочта»</button>
+            <button class="delivery__btn" data-filter=".delivery_company">Транспортная компания</button>
+          </div>
+          <div class="delivery__inner">
+            <div class="delivery__items mix courier">
+              <div class="delivery__item">
+                <div class="delivery__item-text-box">
+                  <p class="delivery__item-text">
+                    Мы осуществляем доставку по Санкт-Петербургу в пределах КАД только по
+                    будням с 10:00 до 18:00.<br>
+                    Стоимость доставки:<br>
+                    - При заказе от 5000 руб. - БЕСПЛАТНО<br>
+                    - При заказе до 5000 руб. - 350 руб. до 1кг +30 руб. за каждый последующий кг.<br>
+                    В течении 1-2 рабочих дней</p>
+                </div>
+                <div class="delivery__item-img">
+                  <img src="@img/delivery/01.jpg" alt="Картинка">
+                </div>
+              </div>
+            </div>
+            <div class="delivery__items mix sdek">
+              <div class="delivery__item">
+                <div class="delivery__item-text-box">
+                  <p class="delivery__item-text">Если посетить наш розничный магазин не представляется возможным.<br>
+                    Рекомендуем рассмотреть вариант доставки до любого удобного ПВЗ курьерской службы СДЭК<br>
+                    Это самый быстрый, удобный и дешевый способ доставки, на наш взгляд.<br>
+                    Забрать свой заказ из ПВЗ вы можете в любой день недели.</p>
+                </div>
+                <div class="delivery__item-img">
+                  <img src="@img/delivery/02.jpg" alt="Картинка">
+                </div>
+              </div>
+            </div>
+            <div class="delivery__items mix kazpochta">
+              <div class="delivery__item">
+                <div class="delivery__item-text-box">
+                  <p class="delivery__item-text">АО «Казпочта» — национальный оператор почтовой связи Республики
+                    Казахстан и одна из самых динамично развивающихся
+                    компаний на постсоветском пространстве, предоставляющих полный спектр почтовых и финансовых услуг по
+                    всей территории
+                    Республики Казахстан, включая все города и населенные пункты.</p>
+                </div>
+                <div class="delivery__item-img">
+                  <img src="@img/delivery/03.jpg" alt="Картинка">
+                </div>
+              </div>
+            </div>
+            <div class="delivery__items mix delivery_company">
+              <div class="delivery__item">
+                <div class="delivery__item-text-box">
+                  <p class="delivery__item-text">Заказы транспортной компанией, отправляются исключительно после оплаты.
+                    До терминала ТК мы осуществляем бесплатную доставку. Стоимость доставки до вашего адреса зависит от
+                    габаритов и веса
+                    груза.<br>
+                    Сайт рассчитает ее автоматически при оформлении заказа. В среднем стоимость доставки с помощью ТК -
+                    от
+                    500 руб.<br>
+                    Мы пользуемся преимущественно услугами ТК «Деловые Линии»</p>
+                </div>
+                <div class="delivery__item-img">
+                  <img src="@img/delivery/04.jpg" alt="Картинка">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pay">
+        <div class="container">
+          <h3 class="pay__title">Способы оплаты</h3>
+          <div class="pay__inner">
+            <div class="pay__item">
+              <div class="pay__item-box">
+                <div class="pay__item-img">
+                  <img src="@img/delivery/07.png" alt="Картинка">
+                </div>
+                <div class="pay__item-content">
+                  <h4 class="pay__item-title">Онлайн оплата картой</h4>
+                  <p class="pay__item-descr">Мгновенная онлайн-оплата через платежную систему (VISA, MasterCard)</p>
+                </div>
+              </div>
+            </div>
+            <div class="pay__item">
+              <div class="pay__item-box">
+                <div class="pay__item-img">
+                  <img src="@img/delivery/08.png" alt="Картинка">
+                </div>
+                <div class="pay__item-content">
+                  <h4 class="pay__item-title">Оплата наличными</h4>
+                  <p class="pay__item-descr">Оплата наличными курьеру при получении заказа.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('./files/html/_footer.html')
+  </div>
+  <script src="js/app.min.js"></script>
+</body>
+
+</html>

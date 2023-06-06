@@ -74,7 +74,7 @@
       @media(max-width: $tablet) {
         &::before {
           font-family: 'icomoon';
-          content: "\e907";
+          content: "\e90e";
           font-size: rem(30);
         }  
       }
@@ -485,7 +485,7 @@
     &[data-parent] {
       &::before {
         font-family: 'icomoon';
-        content: "\e90c";
+        content: "\e913";
         display: none;
         @media(max-width: $tablet) {
           display: block;
