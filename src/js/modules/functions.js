@@ -673,26 +673,33 @@ export function rangeInit() {
   }
 }
 
-// export function quantities() {
-//   const down = document.querySelector('.down')
-//   const up = document.querySelector('.up')
-//   let num = document.querySelector('.actions-product__input')
-//   let price = document.querySelector('.actions-product__num')
-//   const initVal = parseInt(price.textContent)
-//   let arrVal = []
-//   arrVal.push(initVal)
-//   console.log(arrVal[0])
+export function calculateProduct() {
+  let priceElement = document.querySelector('.actions-product__num')
+  let countElement = document.querySelector('.actions-product__input')
+  const down = document.querySelector('.down')
+  const up = document.querySelector('.up')
 
-//   down.addEventListener('click', () => {
-//     if(num.value != 1) {
-//       num.value--
-//       let newVal = initVal - arrVal[0] 
-//       price.textContent = newVal
-//     }
-//   })
-//   up.addEventListener('click', () => {
-//     num.value++
-//     let newVal = arrVal[0] + initVal
-//     price.textContent = newVal
-//   })
-// }
+  if (priceElement !== null) {
+    let counter = 0;
+    let initialPrice = parseInt(priceElement.textContent);
+    let priceIncrement = parseInt(priceElement.textContent);
+
+    up.addEventListener('click', () => {
+      counter++
+      let totalPrice = initialPrice + counter * priceIncrement;
+
+      priceElement.textContent = totalPrice
+      countElement.value = counter + 1;
+    })
+    down.addEventListener('click', () => {
+      if (counter > 0) {
+        counter--
+        let totalPrice = initialPrice + counter * priceIncrement;
+
+        priceElement.textContent = totalPrice
+        countElement.value = counter + 1;
+      }
+    })
+  }
+  
+}

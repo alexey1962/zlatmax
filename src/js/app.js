@@ -7,14 +7,18 @@ flsFunctions.swiper()
 flsFunctions.rating()
 flsFunctions.burgerMenu()
 flsFunctions.rangeInit()
-// flsFunctions.quantities()
+flsFunctions.calculateProduct()
+
+import './script.js'
 
 import './modules/mixitup.js'
 
-const mixer = mixitup('.delivery__inner', {
-  load: {
-    filter: '.courier'
-  }
-});
+const deliveryInner = document.querySelector('.delivery__inner');
 
-import './script.js'
+if (deliveryInner) {
+  const mixer = mixitup(deliveryInner, {
+    load: {
+      filter: '.courier'
+    }
+  });
+}
