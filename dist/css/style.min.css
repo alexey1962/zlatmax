@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import "../fonticons.css";
 @font-face {
   font-family: icomoon;
   font-display: swap;
@@ -3549,6 +3548,106 @@ body.lock {
     order: 2;
     grid-column: span 2;
     margin-top: 20px;
+  }
+}
+.cart {
+  padding: 50px 0 50px;
+}
+.cart__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.cart-main {
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 40px;
+  width: 100%;
+}
+.cart-main__header {
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #8d9ca6;
+}
+.cart-main__title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 28px;
+}
+.cart-main__subtitle {
+  font-style: italic;
+  color: #8d9ca6;
+  font-size: 14px;
+}
+.cart-main__item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #8d9ca6;
+}
+.cart-main__item > *:not(:first-child) {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.main-item__img {
+  padding-left: 10px;
+}
+.main-item__img a img {
+  height: 100px;
+}
+.main-item__content {
+  padding-left: 20px;
+}
+.main-item__price {
+  font-weight: 600;
+  font-size: 26px;
+}
+.cart-total {
+  width: 500px;
+}
+.cart-total__inner {
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 40px;
+  position: sticky;
+  top: 0;
+}
+.cart-total__button {
+  margin-bottom: 40px;
+}
+.cart-total__label {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+@media (max-width: 1590px) {
+  .cart-total__label {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 1270));
+  }
+}
+@media (max-width: 1590px) {
+  .cart-total__label {
+    line-height: calc(18px + 6 * ((100vw - 320px) / 1270));
+  }
+}
+.cart-total__price {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+}
+@media (max-width: 1590px) {
+  .cart-total__price {
+    font-size: calc(18px + 10 * ((100vw - 320px) / 1270));
+  }
+}
+@media (max-width: 1590px) {
+  .cart-total__price {
+    line-height: calc(18px + 10 * ((100vw - 320px) / 1270));
   }
 }
 .noUi-target,

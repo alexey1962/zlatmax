@@ -4,7 +4,7 @@ import * as noUiSlider from 'nouislider'
 export function isWebp() {
   function testWebP(callback) {
 
-    var webP = new Image();
+    let webP = new Image();
     webP.onload = webP.onerror = function () {
       callback(webP.height == 2);
     };
@@ -314,7 +314,7 @@ export function initPopups() {
   // (function () {
   //     if(!Element.prototype.closest) {
   //         Element.prototype.closest = function(css) {
-  //             var node = this
+  //             let node = this
   //             while(node) {
   //                 if(node.matches(css)) return node
   //                 else node = node.parentElement
@@ -591,14 +591,14 @@ export function rating() {
       initRating(rating)
     }
     function initRating(rating) {
-      initatingVars(rating)
+      initatinglets(rating)
       setRatingActiveWidth()
       if (rating.classList.contains('rating_set')) {
         setRating(rating)
       }
     }
 
-    function initatingVars(rating) {
+    function initatinglets(rating) {
       ratingActive = rating.querySelector('.rating__active')
       ratingValue = rating.querySelector('.rating__value')
     }
@@ -613,14 +613,14 @@ export function rating() {
       for (let i = 0; i < ratingItems.length; i++) {
         const ratingItem = ratingItems[i]
         ratingItem.addEventListener('mouseenter', function (e) {
-          initatingVars(rating)
+          initatinglets(rating)
           setRatingActiveWidth(ratingItem.value)
         })
         ratingItem.addEventListener('mouseleave', function (e) {
           setRatingActiveWidth()
         })
         ratingItem.addEventListener('click', function (e) {
-          initatingVars(rating)
+          initatinglets(rating)
           ratingValue.innerHTML = i + 1
           setRatingActiveWidth()
         })
@@ -702,4 +702,82 @@ export function calculateProduct() {
     })
   }
   
+}
+export function cart() {
+  function updateCartSummary() {
+    let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+    let cartSum = 0;
+
+    // Считаем сумму всех товаров в корзине
+    if (cartItems && cartItems.length > 0) {
+      for (let i = 0; i < cartItems.length; i++) {
+        cartSum += parseFloat(cartItems[i].price);
+      }
+    }
+
+    // Обновляем значение суммы в элементе cart-header__summ
+    let cartSummaryElement = document.querySelector('.actions-header__cart .cart-header__summ');
+    cartSummaryElement.textContent = cartSum + ' ₸';
+
+    sessionStorage.setItem('cartSum', cartSum);
+  }
+
+  // Обработчик события для кнопки "Добавить в корзину"
+  function addToCart(event) {
+    let addButton = event.target;
+    let productCard = addButton.closest('.product-card');
+
+    // Получаем данные товара
+    let productName = productCard.querySelector('.product-card__title').textContent;
+    let productPrice = productCard.querySelector('.product-card__price').textContent;
+    let productImage = productCard.querySelector('.product-card__image-ibg > img').getAttribute('src')
+
+    // Создаем объект товара
+    let product = {
+      name: productName,
+      price: productPrice,
+      image: productImage
+    };
+
+    // Получаем текущий список товаров в корзине (если есть)
+    let cartItems = sessionStorage.getItem('cartItems');
+    cartItems = cartItems ? JSON.parse(cartItems) : [];
+
+    // Добавляем товар в список
+    cartItems.push(product);
+
+    // Обновляем данные корзины в локальном хранилище
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+
+    //Устанавливаем отображение количества товаров в корзине
+    let cartCounter = document.querySelector('.actions-header__cart .cart-header__icon > span')
+    cartCounter.textContent = cartItems.length
+    sessionStorage.setItem('cartItemCount', cartItems.length);
+
+    updateCartSummary();
+
+    // Оповещаем пользователя, что товар добавлен в корзину
+    alert('Товар успешно добавлен в корзину!');
+  }
+
+  // Получаем все кнопки "Добавить в корзину" на странице
+  let addToCartButtons = document.querySelectorAll('.product-card__cart');
+
+  // Привязываем обработчик события к каждой кнопке
+  addToCartButtons.forEach(function (button) {
+    button.addEventListener('click', addToCart);
+  });
+
+  window.addEventListener('load', () => {
+    let cartCounter = document.querySelector('.actions-header__cart .cart-header__icon > span');
+    let savedCartItemCount = sessionStorage.getItem('cartItemCount');
+
+    if (savedCartItemCount) {
+      cartCounter.textContent = savedCartItemCount;
+    }
+  });
+
+  // Обновляем сумму всех товаров в корзине при загрузке страницы
+  updateCartSummary();
 }

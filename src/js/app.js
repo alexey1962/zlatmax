@@ -8,6 +8,7 @@ flsFunctions.rating()
 flsFunctions.burgerMenu()
 flsFunctions.rangeInit()
 flsFunctions.calculateProduct()
+flsFunctions.cart()
 
 import './script.js'
 
