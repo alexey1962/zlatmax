@@ -64,7 +64,9 @@
 
   &__actions {}
 
-  &__remove-btn {}
+  &__remove-btn {
+    cursor: pointer;
+  }
 
   &__buttons {}
 

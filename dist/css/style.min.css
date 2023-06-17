@@ -3603,6 +3603,9 @@ body.lock {
 .main-item__content {
   padding-left: 20px;
 }
+.main-item__remove-btn {
+  cursor: pointer;
+}
 .main-item__price {
   font-weight: 600;
   font-size: 26px;

@@ -708,66 +708,77 @@ export function cart() {
     let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
     let cartSum = 0;
 
-    // Считаем сумму всех товаров в корзине
     if (cartItems && cartItems.length > 0) {
       for (let i = 0; i < cartItems.length; i++) {
         cartSum += parseFloat(cartItems[i].price);
       }
     }
 
-    // Обновляем значение суммы в элементе cart-header__summ
     let cartSummaryElement = document.querySelector('.actions-header__cart .cart-header__summ');
     cartSummaryElement.textContent = cartSum + ' ₸';
 
     sessionStorage.setItem('cartSum', cartSum);
   }
 
-  // Обработчик события для кнопки "Добавить в корзину"
   function addToCart(event) {
     let addButton = event.target;
     let productCard = addButton.closest('.product-card');
 
-    // Получаем данные товара
     let productName = productCard.querySelector('.product-card__title').textContent;
     let productPrice = productCard.querySelector('.product-card__price').textContent;
     let productImage = productCard.querySelector('.product-card__image-ibg > img').getAttribute('src')
 
-    // Создаем объект товара
     let product = {
       name: productName,
       price: productPrice,
       image: productImage
     };
 
-    // Получаем текущий список товаров в корзине (если есть)
     let cartItems = sessionStorage.getItem('cartItems');
     cartItems = cartItems ? JSON.parse(cartItems) : [];
 
-    // Добавляем товар в список
     cartItems.push(product);
-
-    // Обновляем данные корзины в локальном хранилище
     sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
 
 
-    //Устанавливаем отображение количества товаров в корзине
     let cartCounter = document.querySelector('.actions-header__cart .cart-header__icon > span')
     cartCounter.textContent = cartItems.length
     sessionStorage.setItem('cartItemCount', cartItems.length);
 
     updateCartSummary();
 
-    // Оповещаем пользователя, что товар добавлен в корзину
     alert('Товар успешно добавлен в корзину!');
   }
 
-  // Получаем все кнопки "Добавить в корзину" на странице
   let addToCartButtons = document.querySelectorAll('.product-card__cart');
 
-  // Привязываем обработчик события к каждой кнопке
   addToCartButtons.forEach(function (button) {
     button.addEventListener('click', addToCart);
   });
+
+  function removeCartItem(event) {
+    let removeButton = event.target;
+    let cartItem = removeButton.closest('.cart-main__item');
+    
+    if (cartItem) {
+
+      let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+      let index = Array.from(cartItem.parentNode.children).indexOf(cartItem);
+
+      cartItems.splice(index, 1);
+      sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      cartItem.remove();
+
+      let cartItemCount = cartItems.length;
+      sessionStorage.setItem('cartItemCount', cartItemCount);
+
+      let cartCounter = document.querySelector('.actions-header__cart .cart-header__icon > span');
+      cartCounter.textContent = cartItemCount;
+
+      updateCartSummary();
+    }
+  }
 
   window.addEventListener('load', () => {
     let cartCounter = document.querySelector('.actions-header__cart .cart-header__icon > span');
@@ -776,8 +787,50 @@ export function cart() {
     if (savedCartItemCount) {
       cartCounter.textContent = savedCartItemCount;
     }
+
+    let cartItems = sessionStorage.getItem('cartItems');
+    cartItems = cartItems ? JSON.parse(cartItems) : [];
+
+    let cartContainer = document.querySelector('.cart-main__list');
+
+    cartItems.forEach(function (item) {
+      let cartItemElement = document.createElement('li');
+      cartItemElement.className = 'cart-main__item main-item';
+
+      cartItemElement.innerHTML = `
+          <div class="main-item__img">
+            <a href="#">
+              <img src="${item.image}" alt="">
+            </a>
+          </div>
+          <div class="main-item__content">
+            <a href="#">${item.name}</a>
+          </div>
+          <div class="main-item__actions">
+            <button class="main-item__remove-btn">remove</button>
+          </div>
+          <div class="main-item__buttons">
+            <div class='counter'>
+              <div class='down'>-</div>
+              <input type='number' value='1' class="actions-product__input">
+              <div class='up'>+</div>
+            </div>
+          </div>
+          <div class="main-item__price"><span class="main-item__num">${item.price}</span>₸</div>
+        `;
+
+      if (cartContainer) {
+        cartContainer.appendChild(cartItemElement);
+      }
+    });
+    
+    
+
+    let removeButtons = document.querySelectorAll('.main-item__remove-btn');
+    removeButtons.forEach(function (button) {
+      button.addEventListener('click', removeCartItem);
+    });
   });
 
-  // Обновляем сумму всех товаров в корзине при загрузке страницы
   updateCartSummary();
 }
