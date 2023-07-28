@@ -99,13 +99,6 @@ ul {
   cursor: pointer;
 }
 
-[class*=__container] {
-  max-width: 99.375rem;
-  box-sizing: content-box;
-  margin: 0 auto;
-  padding: 0 0.9375rem;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
